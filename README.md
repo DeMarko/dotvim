@@ -4,6 +4,15 @@ These are some of the files I use with vim everyday. I'm normally torn between v
 
 I recommend looking at [this guide](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/) if you're getting started or trying to clone my files and not having any luck.
 
+### aliases ###
+alias your vim config files, trust me, saves you a lot of pain
+
+    ln -s ~/.vim/vimrc ~/.vimrc
+    ln -s ~/.vim/gvimrc ~/.gvimrc
+
+### updating ###
+    ./update.sh
+
 ### disclaimer ###
 I write a good amount of PHP at work so it may lean a bit in that direction
 
