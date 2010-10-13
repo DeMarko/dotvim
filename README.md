@@ -10,11 +10,11 @@ I write a good amount of PHP at work so it may lean a bit in that direction
 
 ### acknowledgements ###
 here are some of the things I couldn't submodule:
-> tomasr's [molokai][] 
-> Lars H. Nielsen's [wombat][]
-> Peter Hodge's [php.vim][]
-> Ken Earl's [smarty.vim][]
-> Rainer M. Schmid's [valgrind.vim][]
+* tomasr's [molokai][] 
+* Lars H. Nielsen's [wombat][]
+* Peter Hodge's [php.vim][]
+* Ken Earl's [smarty.vim][]
+* Rainer M. Schmid's [valgrind.vim][]
 
 [MacVim]: http://code.google.com/p/macvim/ "MacVim.app"
 [molokai]: http://winterdom.com/2008/08/molokaiforvim "Molokai Colorscheme"
