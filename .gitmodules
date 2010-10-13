@@ -1,0 +1,39 @@
+[submodule "bundle/PIV"]
+	path = bundle/PIV
+	url = http://github.com/vim-scripts/PIV.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = http://github.com/vim-scripts/ack.vim.git
+[submodule "bundle/repeat"]
+	path = bundle/repeat
+	url = http://github.com/tpope/vim-repeat.git
+[submodule "bundle/netrw"]
+	path = bundle/netrw
+	url = http://github.com/vim-scripts/netrw.vim.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = http://github.com/scrooloose/syntastic.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = http://github.com/scrooloose/nerdtree.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = http://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/space"]
+	path = bundle/space
+	url = http://github.com/scrooloose/vim-space.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = http://github.com/msanders/snipmate.vim.git
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "bundle/rainbow"]
+	path = bundle/rainbow
+	url = http://github.com/chrismetcalf/vim-rainbow.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = http://github.com/tpope/vim-surround.git
+[submodule "bundle/yankring"]
+	path = bundle/yankring
+	url = http://github.com/chrismetcalf/vim-yankring.git
