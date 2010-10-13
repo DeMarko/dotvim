@@ -1,8 +1,7 @@
-DeMarko vimfiles
-================
+vimfiles
+========
+These are some of the files I use with vim everyday. I'm normally torn between vim 7.0 and [MacVim][] (7.3 gui)
 
-These are some of the files I use with vim everyday.
-I'm normally torn between vim 7.0 and [MacVim][] (7.3 gui)
 I recommend looking at [this guide](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/) if you're getting started or trying to clone my files and not having any luck.
 
 ### disclaimer ###
