@@ -1,8 +1,6 @@
-" DeMarko's blatantly stolen .vimrc
-"   which you totally should not feel guilty about stealing either
-"   no, like seriously, go ahead
+" DeMarko's vimrc
 
-autocmd!                              
+autocmd!
 
 filetype off
 call pathogen#runtime_append_all_bundles()
@@ -51,12 +49,177 @@ set ruler                          " add a useful ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
 set laststatus=2                   " always show status line
 
-" status line hijinks
-set statusline=%<%f\ %h%m%r%y
- \%{exists('g:loaded_fugitive')?fugitive#statusline():''}
- \%{exists('g:loaded_rvm')?rvm#statusline_ft_ruby():''}
- \%{&filetype=='perl'?'['.system($perlv).']':''}
- \%=%-14.(%l,%c%V%)\ %P
+"statusline setup
+set statusline=%f       "tail of the filename
+
+"display a warning if fileformat isnt unix
+set statusline+=%#warningmsg#
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%*
+
+"display a warning if file encoding isnt utf-8
+set statusline+=%#warningmsg#
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+set statusline+=%*
+
+set statusline+=%h      "help file flag
+set statusline+=%y      "filetype
+set statusline+=%r      "read only flag
+set statusline+=%m      "modified flag
+
+" fugitive statusline
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+
+"display a warning if &et is wrong, or we have mixed-indenting
+set statusline+=%#error#
+set statusline+=%{StatuslineTabWarning()}
+set statusline+=%*
+
+set statusline+=%{StatuslineTrailingSpaceWarning()}
+
+set statusline+=%{StatuslineLongLineWarning()}
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"display a warning if &paste is set
+set statusline+=%#error#
+set statusline+=%{&paste?'[paste]':''}
+set statusline+=%*
+
+set statusline+=%=      "left/right separator
+set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
+set laststatus=2
+
+"recalculate the trailing whitespace warning when idle, and after saving
+autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
+
+"return '[\s]' if trailing white space is detected
+"return '' otherwise
+function! StatuslineTrailingSpaceWarning()
+    if !exists("b:statusline_trailing_space_warning")
+
+        if !&modifiable
+            let b:statusline_trailing_space_warning = ''
+            return b:statusline_trailing_space_warning
+        endif
+
+        if search('\s\+$', 'nw') != 0
+            let b:statusline_trailing_space_warning = '[\s]'
+        else
+            let b:statusline_trailing_space_warning = ''
+        endif
+    endif
+    return b:statusline_trailing_space_warning
+endfunction
+
+
+"return the syntax highlight group under the cursor ''
+function! StatuslineCurrentHighlight()
+    let name = synIDattr(synID(line('.'),col('.'),1),'name')
+    if name == ''
+        return ''
+    else
+        return '[' . name . ']'
+    endif
+endfunction
+
+"recalculate the tab warning flag when idle and after writing
+autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
+
+"return '[&et]' if &et is set wrong
+"return '[mixed-indenting]' if spaces and tabs are used to indent
+"return an empty string if everything is fine
+function! StatuslineTabWarning()
+    if !exists("b:statusline_tab_warning")
+        let b:statusline_tab_warning = ''
+
+        if !&modifiable
+            return b:statusline_tab_warning
+        endif
+
+        let tabs = search('^\t', 'nw') != 0
+
+        "find spaces that arent used as alignment in the first indent column
+        let spaces = search('^ \{' . &ts . ',}[^\t]', 'nw') != 0
+
+        if tabs && spaces
+            let b:statusline_tab_warning =  '[mixed-indenting]'
+        elseif (spaces && !&et) || (tabs && &et)
+            let b:statusline_tab_warning = '[&et]'
+        endif
+    endif
+    return b:statusline_tab_warning
+endfunction
+
+"recalculate the long line warning when idle and after saving
+autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
+
+"return a warning for "long lines" where "long" is either &textwidth or 80 (if
+"no &textwidth is set)
+"
+"return '' if no long lines
+"return '[#x,my,$z] if long lines are found, were x is the number of long
+"lines, y is the median length of the long lines and z is the length of the
+"longest line
+function! StatuslineLongLineWarning()
+    if !exists("b:statusline_long_line_warning")
+
+        if !&modifiable
+            let b:statusline_long_line_warning = ''
+            return b:statusline_long_line_warning
+        endif
+
+        let long_line_lens = s:LongLines()
+
+        if len(long_line_lens) > 0
+            let b:statusline_long_line_warning = "[" .
+                        \ '#' . len(long_line_lens) . "," .
+                        \ 'm' . s:Median(long_line_lens) . "," .
+                        \ '$' . max(long_line_lens) . "]"
+        else
+            let b:statusline_long_line_warning = ""
+        endif
+    endif
+    return b:statusline_long_line_warning
+endfunction
+
+"return a list containing the lengths of the long lines in this buffer
+function! s:LongLines()
+    let threshold = (&tw ? &tw : 80)
+    let spaces = repeat(" ", &ts)
+
+    let long_line_lens = []
+
+    let i = 1
+    while i <= line("$")
+        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
+        if len > threshold
+            call add(long_line_lens, len)
+        endif
+        let i += 1
+    endwhile
+
+    return long_line_lens
+endfunction
+
+"find the median of the given array of numbers
+function! s:Median(nums)
+    let nums = sort(a:nums)
+    let l = len(nums)
+
+    if l % 2 == 1
+        let i = (l-1) / 2
+        return nums[i]
+    else
+        return (nums[l/2] + nums[(l/2)-1]) / 2
+    endif
+endfunction
+
 
 if version >= 703
     set relativenumber             " shows line numbers relative to current line
@@ -85,10 +248,11 @@ set virtualedit=onemore            " allow for cursor beyond last character
 "vnoremap / /\v
 set ignorecase                     " make searches case-insensitive
 set smartcase                      " unless they contain upper-case letters ;)
-set incsearch                      " show the `best match so far' as search strings are typed
-set gdefault                       " assume the /g flag on :s substitutions to replace all matches in a line
+set incsearch    " show the `best match so far' as search strings are typed
+set gdefault     " assume the /g flag on :s substitutions
 set hlsearch                       " highlight search items
-nnoremap <leader><space> :noh<cr>
+" unhighilight search items with ,<space>
+nnoremap <leader><space> :noh<cr>  
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -98,20 +262,16 @@ set formatoptions=qrn1
 set autoindent
 set shiftround
 
-set wildchar=<TAB>                 " have command-line completion <Tab>
-set whichwrap=h,l,~,[,]            " have the h and l cursor keys wrap between 
-                                   " lines (like <Space> and <BkSpc> do by default),
-                                   " and ~ convert case over line breaks; 
-                                   " also have the cursor keys wrap in insert mode
+set wildchar=<TAB>            " have command-line completion <Tab>
+set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
+                              " lines (like <Space> and <BkSpc> do by default),
+                              " and ~ convert case over line breaks;
+                              " also have the cursor keys wrap in insert mode
 
 " use <F6> to cycle through split windows (and <Shift>+<F6> to cycle backwards
 nnoremap <F6> <C-W>w
 nnoremap <S-F6> <C-W>W
 
-" tab navigation
-nmap <C-w> :tabclose<cr>
-nmap <C-Tab> :tabnext<cr>
-nmap <C-S-Tab> :tabprev<cr>
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -125,6 +285,7 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 " page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
 " `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
 " or <BkSpc> (like in `Netscape Navigator'):
+" NOTE: enabling this may make the space.vim plugin wonky
 "noremap <Space> <PageDown>
 "noremap <BS> <PageUp>
 
@@ -142,7 +303,7 @@ map <leader>v V`]
 
 " Ack
 if version >= 703
-    map <leader>a :Ack 
+    map <leader>a :Ack
 endif
 
 " Yankring
@@ -153,7 +314,7 @@ nnoremap <silent> <leader>y :YRShow<cr>
 map <leader>q gqip
 
 " find out who's to blame for the current line
-vmap <leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
+vmap <leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " Folding
@@ -161,7 +322,10 @@ vmap <leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 " set foldmethod=indent
 au BufNewFile,BufRead *.html map <leader>ft Vatzf
 
-" get rid of the default style of C comments, and define a style with two stars at the start of `middle' rows which (looks nicer and) avoids asterisks used for bullet lists being treated like C comments; then define a bullet list style for single stars (like already is for hyphens):
+" get rid of the default style of C comments, and define a style with two stars 
+" at the start of `middle' rows which (looks nicer and) avoids asterisks used 
+" for bullet lists being treated like C comments; then define a bullet list 
+" style for single stars (like already is for hyphens):
 set comments-=s1:/*,mb:*,ex:*/
 set comments+=s:/*,mb:\ *,ex:*/
 set comments+=fb:\ *
@@ -178,12 +342,21 @@ augroup END
 autocmd FileType mail,human set formatoptions+=t textwidth=72
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
-" for actual C (not C++) programming where comments have explicit end characters, if starting a new line in the middle of a comment automatically insert the comment leader characters:
+" for actual C (not C++) programming where comments have explicit end 
+" characters, if starting a new line in the middle of a comment automatically 
+" insert the comment leader characters:
 autocmd FileType c set formatoptions+=ro
 " for Perl programming, have things in braces indenting themselves:
 autocmd FileType perl set smartindent
-" in makefiles, don't expand tabs to spaces, since actual tab characters are needed, and have indentation at 8 chars to be sure that all indents are tabs (despite the mappings later):
+" in makefiles, don't expand tabs to spaces, since actual tab characters are
+" needed, and have indentation at 8 chars to be sure that all indents are tabs 
+" (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
+
+" recognize smarty files, add dictionary completion
+au BufRead,BufNewFile *.tpl set filetype=smarty
+au Filetype smarty exec('set dictionary=$HOME/.vim/syntax/smarty.vim')
+au Filetype smarty set complete+=k
 
 " PHP Specific
 " highlights interpolated variables in sql strings and does sql-syntax highlighting. yay
@@ -194,9 +367,6 @@ autocmd FileType php let php_htmlInStrings=1
 autocmd FileType php let php_noShortTags=1
 " automagically folds functions & methods. this is getting IDE-like isn't it?
 autocmd FileType php let php_folding=2
-" set "make" command when editing php files
-set makeprg=php\ -l\ %
-set errorformat=%m\ in\ %f\ on\ line\ %l
 
 set omnifunc=syntaxcomplete#Complete
 " autocomplete funcs and identifiers for languages
@@ -215,4 +385,16 @@ let g:DisableAutoPHPFolding = 0
 syntax on                          " syntax highlighting is nifty! let's turn it on!
 set background=dark
 colorscheme dante
+
+"define :HighlightLongLines command to highlight the offending parts of
+"lines that are longer than the specified length (defaulting to 80)
+command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
+function! s:HighlightLongLines(width)
+    let targetWidth = a:width != '' ? a:width : 79
+    if targetWidth > 0
+        exec 'match Todo /\%>' . (targetWidth) . 'v/'
+    else
+        echomsg "Usage: HighlightLongLines [natural number]"
+    endif
+endfunction
 
