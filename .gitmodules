@@ -1,9 +1,3 @@
-[submodule "bundle/PIV"]
-	path = bundle/PIV
-	url = http://github.com/vim-scripts/PIV.git
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = http://github.com/vim-scripts/ack.vim.git
 [submodule "bundle/repeat"]
 	path = bundle/repeat
 	url = http://github.com/tpope/vim-repeat.git
