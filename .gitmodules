@@ -31,3 +31,9 @@
 [submodule "bundle/yankring"]
 	path = bundle/yankring
 	url = http://github.com/chrismetcalf/vim-yankring.git
+[submodule "bundle/PIV"]
+	path = bundle/PIV
+	url = http://github.com/spf13/PIV.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = http://github.com/mileszs/ack.vim.git
