@@ -37,3 +37,12 @@
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = http://github.com/mileszs/ack.vim.git
+[submodule "bundle/mac-classic"]
+	path = bundle/mac-classic
+	url = http://github.com/nelstrom/vim-mac-classic-theme.git
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = http://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/lusty"]
+	path = bundle/lusty
+	url = http://github.com/sjbach/lusty.git
