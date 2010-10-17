@@ -48,6 +48,7 @@ set showmode                       " display the current mode in the status line
 set showcmd                        " show partially-typed commands in the status line
 set ruler                          " add a useful ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
+set hidden
 
 " Statusline Hijinx
 set statusline=%f       "tail of the filename
@@ -262,6 +263,8 @@ let g:syntastic_auto_loc_list=1
 " PIV options
 let g:DisableAutoPHPFolding = 0
 
+" wtf LustyExplorer, most annoying warning EVER
+let g:LustyExplorerSuppressRubyWarning = 1
 
 " * Functions
 
