@@ -43,3 +43,6 @@
 [submodule "bundle/lusty"]
 	path = bundle/lusty
 	url = http://github.com/sjbach/lusty.git
+[submodule "bundle/unimpaired"]
+	path = bundle/unimpaired
+	url = http://github.com/tpope/vim-unimpaired.git
