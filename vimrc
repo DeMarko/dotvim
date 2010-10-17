@@ -1,7 +1,7 @@
 " DeMarko's vimrc
 
 autocmd!
-
+filetype on
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -43,6 +43,7 @@ set tabstop=4
 set expandtab
 
 " * Basics
+syntax on                          " syntax highlighting is nifty! let's turn it on!
 set showmode                       " display the current mode in the status line
 set showcmd                        " show partially-typed commands in the status line
 set ruler                          " add a useful ruler
@@ -95,20 +96,6 @@ set statusline+=\ %P    "percent through file
 set laststatus=2        "always show status line
 
 
-" * Other options
-
-if version >= 703
-    set relativenumber             " shows line numbers relative to current line
-else
-    set number
-endif
-set wildmenu                       " enables a menu at the bottom of the vim/gvim window
-set wildmode=longest,list          " complete on tab to longest match, present match list on second tab
-set ttyfast                        " enable support for higher speed terminal connections
-set showmatch                      " show brace matching
-set matchtime=3                    " for 3 milliseconds
-set scrolloff=4
-
 " * Leader
 let mapleader = ","
 
@@ -131,13 +118,24 @@ set formatoptions=qrn1
 set autoindent
 set shiftround
 
+if version >= 703
+    set relativenumber             " shows line numbers relative to current line
+else
+    set number
+endif
+set wildmenu                       " enables a menu at the bottom of the vim/gvim window
+set wildmode=longest,list          " complete on tab to longest match, present match list on second tab
+set ttyfast                        " enable support for higher speed terminal connections
+set showmatch                      " show brace matching
+set matchtime=3                    " for 3 milliseconds
+set scrolloff=4
+
 set wildchar=<TAB>            " have command-line completion <Tab>
 set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
                               " lines (like <Space> and <BkSpc> do by default),
                               " and ~ convert case over line breaks;
                               " also have the cursor keys wrap in insert mode
 
-syntax on                 " syntax highlighting is nifty! let's turn it on!
 set background=dark
 colorscheme dante
 
