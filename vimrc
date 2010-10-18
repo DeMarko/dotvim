@@ -156,6 +156,9 @@ cmap w!! w !sudo tee % >/dev/null
 " unhighilight search items with ,<space>
 nnoremap <leader><space> :noh<cr>
 
+" edit vim config
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
 " page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
 " `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
 " or <BkSpc> (like in `Netscape Navigator'):
@@ -174,6 +177,13 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Easier linewise reselection
 map <leader>v V`]
+
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 " Yankring
 nnoremap <silent> <F3> :YRShow<cr>
