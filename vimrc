@@ -189,6 +189,10 @@ vmap <C-Down> ]egv
 nnoremap <silent> <F3> :YRShow<cr>
 nnoremap <silent> <leader>y :YRShow<cr>
 
+" Gundo keymaps
+nnoremap <F5> :GundoToggle<CR>
+nnoremap <leader>g :GundoToggle<CR>
+
 " Formatting, TextMate-style
 map <leader>q gqip
 
