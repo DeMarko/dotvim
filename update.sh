@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 txtgrn='\e[1;32m' # Green
 txtrst='\e[0m'    # Text Reset
