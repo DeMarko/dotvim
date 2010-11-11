@@ -157,7 +157,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader><space> :noh<cr>
 
 " edit vim config
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>V :tabedit $MYVIMRC<CR>
 
 " page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
 " `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
