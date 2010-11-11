@@ -201,9 +201,7 @@ au BufNewFile,BufRead *.html map <leader>ft Vatzf
 " stuff I've only found works properly in 7.3
 if version >= 703
     " Ack
-    map <leader>a :Ack
-    " Rainbows!
-    nnoremap <leader>R :RainbowParenthesesToggle<CR>
+    map <leader>a :Ack<space>
 endif
 
 

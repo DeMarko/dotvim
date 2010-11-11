@@ -11,6 +11,9 @@ set guioptions-=R
 
 highlight SpellBad term=underline gui=undercurl guisp=Orange
 
+" Rainbows!
+nnoremap <leader>R :RainbowParenthesesToggle<CR>
+
 " tab navigation
 nmap <C-w> :tabclose<cr>
 nmap <C-t> :tabnew<cr>
