@@ -65,3 +65,6 @@
 [submodule "supertab"]
 	path = supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
