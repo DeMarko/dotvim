@@ -172,18 +172,13 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 nnoremap ; :
 
+nmap <leader>sw :syntax off<CR>:syntax on<CR>
+
 " strip trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Easier linewise reselection
 map <leader>v V`]
-
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
 
 " Yankring
 nnoremap <silent> <F3> :YRShow<cr>
@@ -192,9 +187,6 @@ nnoremap <silent> <leader>y :YRShow<cr>
 " Gundo keymaps
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <leader>g :GundoToggle<CR>
-
-" Formatting, TextMate-style
-map <leader>q gqip
 
 " highlight long lines in file
 nnoremap <leader>long :HighlightLongLines<CR>
@@ -211,8 +203,24 @@ if version >= 703
     " Ack
     map <leader>a :Ack
     " Rainbows!
-    nmap <leader>R :RainbowParenthesesToggle<CR>
+    nnoremap <leader>R :RainbowParenthesesToggle<CR>
 endif
+
+
+" * Plugin Options
+
+" disable PIV's PHP autofolding
+let g:DisableAutoPHPFolding = 1
+
+" Syntastic options
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 1
+
+" wtf LustyExplorer, most annoying warning EVER
+let g:LustyExplorerSuppressRubyWarning = 1
+
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
 
 
 " * Text Formatting
@@ -256,29 +264,18 @@ au Filetype smarty set complete+=k
 
 " ** PHP Specific
 " highlights interpolated variables in sql strings and does sql-syntax highlighting. yay
-autocmd FileType php let php_sql_query=1
+autocmd FileType php let php_sql_query = 1
 " does exactly that. highlights html inside of php strings
-autocmd FileType php let php_htmlInStrings=1
+autocmd FileType php let php_htmlInStrings = 1
 " discourages use oh short tags. c'mon its deprecated remember
-autocmd FileType php let php_noShortTags=1
+autocmd FileType php let php_noShortTags = 1
 " automagically folds functions & methods. this is getting IDE-like isn't it?
-autocmd FileType php let php_folding=2
+autocmd FileType php let php_folding = 3
+" highlight functions from the base library
+autocmd FileType php let php_baselib = 1
 
 " OmniCompletion for std lib functions and so forth (C-X, C-o)
 set omnifunc=syntaxcomplete#Complete
-
-
-" * Plugin Options
-
-" Syntastic options
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-
-" PIV options
-let g:DisableAutoPHPFolding = 0
-
-" wtf LustyExplorer, most annoying warning EVER
-let g:LustyExplorerSuppressRubyWarning = 1
 
 " * Functions
 
