@@ -62,3 +62,6 @@
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
     ignore = untracked
+[submodule "supertab"]
+	path = supertab
+	url = https://github.com/ervandew/supertab.git
