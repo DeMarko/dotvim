@@ -1,13 +1,13 @@
 #!/bin/bash
 
-txtgrn='\e[1;32m' # Green
-txtrst='\e[0m'    # Text Reset
+txtgrn='\033[1;32m' # Green
+txtrst='\033[0m'    # Text Reset
 
 cd $HOME/.vim/bundle/
 for bundle in *
 do
     cd $bundle
     echo -e "${txtgrn}${bundle}${txtrst}"
-    git pull
+    git pull origin master
     cd ..
 done
