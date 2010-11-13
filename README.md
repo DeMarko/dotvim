@@ -1,6 +1,6 @@
 vimfiles
 ========
-These are some of the files I use with vim everyday. I'm normally torn between vim 7.0 and [MacVim][] (7.3 gui)
+These are some of the files I use with vim everyday. They're mostly for use with vim 7.3 and [MacVim][]
 
 I recommend looking at [this guide](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/) if you're getting started or trying to clone my files and not having any luck.
 
@@ -8,6 +8,7 @@ I recommend looking at [this guide](http://vimcasts.org/episodes/synchronizing-p
 this is the quickest way to install these files
     
     # these bits backup your current vim files and get them out of the way
+    # skip if you don't have a config or have removed your own
     mv .vim vimfilesbackup
     mv .vimrc vimfilesbackup/vimrcbck
     mv .gvimrc vimfilesbackup/gvimrcbck
@@ -21,7 +22,7 @@ this is the quickest way to install these files
 
 ### updating bundles ###
 
-    # literally calls git pull on every submodule
+    # literally calls 'git pull origin master' on every submodule
     ~/.vim/update.sh
 
 ### disclaimer ###
