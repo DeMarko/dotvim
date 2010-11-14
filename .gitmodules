@@ -74,3 +74,6 @@
 [submodule "bundle/vcscommand"]
 	path = bundle/vcscommand
 	url = https://github.com/vim-scripts/vcscommand.vim.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = https://github.com/wincent/Command-T.git
