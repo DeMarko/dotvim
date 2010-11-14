@@ -29,11 +29,14 @@ if version >= 703
     set undodir=~/.vim/tmp/undo// " undofiles
 endif
 
+" starts NERDTree for every file 
+autocmd VimEnter * exe 'NERDTree' | wincmd l
+
 au BufWinLeave * silent! mkview  "make vim save view (state) (folds, cursor, etc)
 au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
 
 " auto switch to folder where editing file
-" set autochdir
+set autochdir
 " autocmd BufEnter * cd %:p:h
 
 " * Tab-related
@@ -138,8 +141,7 @@ set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
                               " also have the cursor keys wrap in insert mode
 
 set background=dark
-colorscheme dante
-
+colorscheme candycode
 
 " * Key Remaps
 
@@ -184,6 +186,9 @@ map <leader>v V`]
 nnoremap <silent> <F3> :YRShow<cr>
 nnoremap <silent> <leader>y :YRShow<cr>
 
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<CR>
+
 " Gundo keymaps
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <leader>g :GundoToggle<CR>
@@ -220,6 +225,8 @@ let g:LustyExplorerSuppressRubyWarning = 1
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
 
+" NERDTree
+let g:NERDTreeHijackNetrw=1 " User instead of Netrw when doing an edit /foobar
 
 " * Text Formatting
 

@@ -36,6 +36,8 @@ here are some of the things I couldn't submodule:
 +  Peter Hodge's [php.vim][]
 +  Ken Earl's [smarty.vim][]
 +  Rainer M. Schmid's [valgrind.vim][]
++  Todd Werth's [ir_black][]
++  Justin Constantino's [candycode][]
 
 [MacVim]: http://code.google.com/p/macvim/ "MacVim.app"
 [molokai]: http://winterdom.com/2008/08/molokaiforvim "Molokai Colorscheme"
@@ -43,4 +45,5 @@ here are some of the things I couldn't submodule:
 [php.vim]: http://www.vim.org/scripts/script.php?script_id=1571 "PHP Syntax"
 [smarty.vim]: http://www.vim.org/scripts/script.php?script_id=1798 "Smarty Syntax"
 [valgrind.vim]: http://www.vim.org/scripts/script.php?script_id=607 "Valgrind navigator"
-
+[candycode]: http://www.vim.org/scripts/script.php?script_id=1635
+[ir_black]: http://blog.infinitered.com/entries/show/8
