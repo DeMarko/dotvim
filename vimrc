@@ -31,9 +31,10 @@ endif
 
 " starts NERDTree for every file 
 autocmd VimEnter * exe 'NERDTree' | wincmd l
+autocmd BufEnter * NERDTreeMirror
 
-au BufWinLeave * silent! mkview  "make vim save view (state) (folds, cursor, etc)
-au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
+au BufWinLeave * silent! mkview   " make vim save view (state) (folds, cursor, etc)
+au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, etc)
 
 " auto switch to folder where editing file
 set autochdir
