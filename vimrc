@@ -198,8 +198,7 @@ nnoremap <leader>g :GundoToggle<CR>
 nnoremap <leader>long :HighlightLongLines<CR>
 
 " find out who's to blame for the current line
-vmap <leader>b :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-vmap <leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+nnoremap <leader>b :VCSBlame<CR>
 
 " fold html tags
 au BufNewFile,BufRead *.html map <leader>ft Vatzf
