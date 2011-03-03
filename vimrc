@@ -1,7 +1,6 @@
 " DeMarko's vimrc
 
 autocmd!
-filetype on
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -30,8 +29,8 @@ if version >= 703
 endif
 
 " starts NERDTree for every file 
-autocmd VimEnter * exe 'NERDTree' | wincmd l
-autocmd BufEnter * NERDTreeMirror
+"autocmd VimEnter * exe 'NERDTree' | wincmd l
+"autocmd BufEnter * NERDTreeMirror
 
 au BufWinLeave * silent! mkview   " make vim save view (state) (folds, cursor, etc)
 au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, etc)
@@ -141,6 +140,9 @@ set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
                               " and ~ convert case over line breaks;
                               " also have the cursor keys wrap in insert mode
 
+" invisible characters to show
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
 set background=dark
 colorscheme candycode
 
@@ -159,6 +161,9 @@ cmap w!! w !sudo tee % >/dev/null
 " unhighilight search items with ,<space>
 nnoremap <leader><space> :noh<cr>
 
+" toggle invisible characters
+nnoremap <leader>l :set list!<cr>
+
 " edit vim config
 nmap <leader>V :tabedit $MYVIMRC<CR>
 
@@ -175,6 +180,10 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 nnoremap ; :
 
+" bind current to scroll
+nnoremap <leader>s :set scb!<CR>
+
+" flip syntax on and off
 nmap <leader>sw :syntax off<CR>:syntax on<CR>
 
 " strip trailing whitespace
@@ -213,7 +222,7 @@ endif
 " * Plugin Options
 
 " disable PIV's PHP autofolding
-let g:DisableAutoPHPFolding = 1
+"let g:DisableAutoPHPFolding = 1
 
 " Syntastic options
 let g:syntastic_enable_signs = 1
@@ -275,9 +284,12 @@ autocmd FileType php let php_htmlInStrings = 1
 " discourages use oh short tags. c'mon its deprecated remember
 autocmd FileType php let php_noShortTags = 1
 " automagically folds functions & methods. this is getting IDE-like isn't it?
-autocmd FileType php let php_folding = 3
+"autocmd FileType php let php_folding = 3
 " highlight functions from the base library
 autocmd FileType php let php_baselib = 1
+
+" open PHP classes but not functions
+autocmd FileType php set foldlevel=1
 
 " OmniCompletion for std lib functions and so forth (C-X, C-o)
 set omnifunc=syntaxcomplete#Complete
@@ -444,7 +456,7 @@ function! NERDTreeQuit()
     quitall
   endif
 endfunction
-autocmd WinEnter * call NERDTreeQuit()
+"autocmd WinEnter * call NERDTreeQuit()
 
 " toggle quickfix window
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
