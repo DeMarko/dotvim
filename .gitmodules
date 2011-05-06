@@ -46,14 +46,6 @@
 	path = bundle/ack
 	url = http://github.com/mileszs/ack.vim.git
     ignore = untracked
-[submodule "bundle/mac-classic"]
-	path = bundle/mac-classic
-	url = http://github.com/nelstrom/vim-mac-classic-theme.git
-    ignore = untracked
-[submodule "bundle/lusty"]
-	path = bundle/lusty
-	url = http://github.com/sjbach/lusty.git
-    ignore = untracked
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
@@ -62,18 +54,9 @@
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
     ignore = untracked
-[submodule "supertab"]
-	path = supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
 [submodule "bundle/vcscommand"]
 	path = bundle/vcscommand
 	url = https://github.com/vim-scripts/vcscommand.vim.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = https://github.com/wincent/Command-T.git
