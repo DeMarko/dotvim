@@ -37,6 +37,8 @@ au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, e
 
 " auto switch to folder where editing file
 set autochdir
+" this is the same as the above command for versions of vim 
+" that don't support autochdir
 " autocmd BufEnter * cd %:p:h
 
 " * Tab-related
@@ -164,6 +166,9 @@ nnoremap <leader><space> :noh<cr>
 " toggle invisible characters
 nnoremap <leader>l :set list!<cr>
 
+" enter insert mode after paste
+nmap <leader>p pi
+
 " edit vim config
 nmap <leader>V :tabedit $MYVIMRC<CR>
 
@@ -230,9 +235,6 @@ let g:syntastic_auto_loc_list = 1
 
 " wtf LustyExplorer, most annoying warning EVER
 let g:LustyExplorerSuppressRubyWarning = 1
-
-" SuperTab
-let g:SuperTabDefaultCompletionType = "context"
 
 " NERDTree
 let g:NERDTreeHijackNetrw=1 " User instead of Netrw when doing an edit /foobar
