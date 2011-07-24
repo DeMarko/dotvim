@@ -1,0 +1,10 @@
+
+
+.readable {
+  font-size: 11pt !important;
+}
+
+
+.readable .header {
+  display: none !important;
+}

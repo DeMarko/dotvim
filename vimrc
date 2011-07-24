@@ -11,7 +11,7 @@ set nocompatible                   " screw vi compatibility, only geezers use vi
 " * Security
 set modelines=0                    " prevents known security exploit
 
-" Backups and undo and YankRing
+" Backups, undo, views, YankRing and Markdown previews
 set backup                        " enable backups
 silent execute '!mkdir -p $HOME/.vim/tmp/backup'
 set backupdir=$HOME/.vim/tmp/backup// " backups
@@ -21,6 +21,8 @@ silent execute '!mkdir -p $HOME/.vim/tmp/views'
 set viewdir=$HOME/.vim/tmp/views//    " view files
 silent execute '!mkdir -p $HOME/.vim/tmp/yankring'
 let g:yankring_history_dir = '$HOME/.vim/tmp/yankring'
+silent execute '!mkdir -p $HOME/.vim/tmp/other/'
+let g:MarkdownPreviewTMP = '$HOME/.vim/tmp/other/'
 
 if version >= 703
     set undofile
@@ -236,6 +238,9 @@ let g:syntastic_auto_loc_list = 1
 " wtf LustyExplorer, most annoying warning EVER
 let g:LustyExplorerSuppressRubyWarning = 1
 
+" fix bundled directory for stylesheets
+"let g:MarkdownPreviewDefaultStyles = $HOME.'/.vim/bundle/markdown-preview/stylesheets/'
+
 " NERDTree
 let g:NERDTreeHijackNetrw=1 " User instead of Netrw when doing an edit /foobar
 
@@ -259,7 +264,7 @@ augroup filetype
   autocmd BufNewFile,BufRead *.txt set filetype=human
 augroup END
 " in human-language files, automatically format everything at 72 chars:
-autocmd FileType mail,human set formatoptions+=t textwidth=72
+autocmd FileType mail,human,markdown set formatoptions+=t textwidth=78
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
 " for actual C (not C++) programming where comments have explicit end

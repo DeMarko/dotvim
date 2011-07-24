@@ -1,0 +1,10 @@
+
+
+.github {
+  font-size: 11pt !important;
+}
+
+
+.github .header {
+  display: none !important;
+}
