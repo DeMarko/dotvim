@@ -148,7 +148,11 @@ set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 set background=dark
-colorscheme candycode
+if &t_Co < 88
+    colorscheme candycode
+else
+    colorscheme molokai
+endif
 
 " * Key Remaps
 
