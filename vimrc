@@ -238,6 +238,7 @@ endif
 " Syntastic options
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_phpcs_disable = 1
 
 " wtf LustyExplorer, most annoying warning EVER
 let g:LustyExplorerSuppressRubyWarning = 1
