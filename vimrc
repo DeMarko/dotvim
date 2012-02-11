@@ -48,6 +48,7 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set expandtab
+set tags=tags;/
 
 " * Basics
 syntax on                          " syntax highlighting is nifty! let's turn it on!
