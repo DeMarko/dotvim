@@ -148,11 +148,7 @@ set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 set background=dark
-if &t_Co < 88
-    colorscheme candycode
-else
-    colorscheme molokai
-endif
+colorscheme molokai
 
 " * Key Remaps
 
@@ -171,9 +167,6 @@ nnoremap <leader><space> :noh<cr>
 
 " toggle invisible characters
 nnoremap <leader>l :set list!<cr>
-
-" enter insert mode after paste
-nmap <leader>p pi
 
 " edit vim config
 nmap <leader>V :tabedit $MYVIMRC<CR>
@@ -218,7 +211,7 @@ nnoremap <leader>g :GundoToggle<CR>
 nnoremap <leader>long :HighlightLongLines<CR>
 
 " find out who's to blame for the current line
-nnoremap <leader>b :VCSBlame<CR>
+nnoremap <leader>b :Gblame<CR>
 
 " fold html tags
 au BufNewFile,BufRead *.html map <leader>ft Vatzf
@@ -238,7 +231,8 @@ endif
 " Syntastic options
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_phpcs_disable = 1
+let g:syntastic_phpcs_conf = "--standard=/home/".expand($USER)."/development/Web/tests/standards/stable-ruleset.xml"
+"let g:syntastic_phpcs_disable = 1
 
 " wtf LustyExplorer, most annoying warning EVER
 let g:LustyExplorerSuppressRubyWarning = 1
