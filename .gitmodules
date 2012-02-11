@@ -63,6 +63,6 @@
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule "vim-indent-guides"]
-	path = vim-indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/indent-guides"]
+	path = bundle/indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides
