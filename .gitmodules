@@ -41,7 +41,7 @@
 [submodule "bundle/PIV"]
 	path = bundle/PIV
 	url = http://github.com/spf13/PIV.git
-    ignore = untracked
+    ignore = dirty
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = http://github.com/mileszs/ack.vim.git
@@ -57,9 +57,6 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "bundle/vcscommand"]
-	path = bundle/vcscommand
-	url = https://github.com/vim-scripts/vcscommand.vim.git
 [submodule "bundle/markdown-preview"]
 	path = bundle/markdown-preview
 	url = https://github.com/mkitt/markdown-preview.vim.git
