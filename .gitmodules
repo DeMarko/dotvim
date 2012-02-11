@@ -78,3 +78,6 @@
 	path = bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch
     ignore = untracked
+[submodule "bundle/jellybeans"]
+	path = bundle/jellybeans
+	url = https://github.com/nanotech/jellybeans.vim.git

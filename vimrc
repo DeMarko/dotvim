@@ -30,7 +30,7 @@ if version >= 703
     set undodir=~/.vim/tmp/undo// " undofiles
 endif
 
-" starts NERDTree for every file 
+" starts NERDTree for every file
 "autocmd VimEnter * exe 'NERDTree' | wincmd l
 "autocmd BufEnter * NERDTreeMirror
 
@@ -39,7 +39,7 @@ au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, e
 
 " auto switch to folder where editing file
 set autochdir
-" this is the same as the above command for versions of vim 
+" this is the same as the above command for versions of vim
 " that don't support autochdir
 " autocmd BufEnter * cd %:p:h
 
@@ -113,7 +113,7 @@ set magic                          " allows pattern matching with special charac
 set backspace=2                    " make backspace work like normal
 set visualbell                     " visual bell instead of annoying beeping
 set mouse=a                        " enable full mouse support in the console
-set virtualedit=onemore            " allow for cursor beyond last character
+set virtualedit=all                " end of the line? what's that?
 " * Search & Replace
 set ignorecase                     " make searches case-insensitive
 set smartcase                      " unless they contain upper-case letters ;)
