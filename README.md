@@ -14,16 +14,13 @@ this is the quickest way to install these files
     mv .gvimrc vimfilesbackup/gvimrcbck
 
     # once we're clear, we can download and link my vimfiles
-    git clone git://github.com/DeMarko/dotvim.git ~/.vim
+    git clone --recursive git://github.com/DeMarko/dotvim.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     ln -s ~/.vim/gvimrc ~/.gvimrc
-    cd ~/.vim/
-    git submodule update --init
 
 ### updating bundles ###
 
-    # literally calls 'git pull origin master' on every submodule
-    ~/.vim/update.sh
+    git submodule foreach git pull origin master
 
 ### disclaimer ###
 I write a good amount of PHP at work so it may lean a bit in that direction
