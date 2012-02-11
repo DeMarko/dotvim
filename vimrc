@@ -113,7 +113,7 @@ set magic                          " allows pattern matching with special charac
 set backspace=2                    " make backspace work like normal
 set visualbell                     " visual bell instead of annoying beeping
 set mouse=a                        " enable full mouse support in the console
-set virtualedit=all                " end of the line? what's that?
+set virtualedit=onemore            " end of the line? what's that?
 " * Search & Replace
 set ignorecase                     " make searches case-insensitive
 set smartcase                      " unless they contain upper-case letters ;)
@@ -241,7 +241,9 @@ let g:LustyExplorerSuppressRubyWarning = 1
 
 " NERDTree
 let g:NERDTreeHijackNetrw=1 " User instead of Netrw when doing an edit /foobar
-
+let g:NERDTreeDirArrows=0
+" disable warnings from NERDCommenter:
+let g:NERDShutUp = 1
 " * Text Formatting
 
 " get rid of the default style of C comments, and define a style with two stars
