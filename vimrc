@@ -148,7 +148,6 @@ set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 colorscheme molokai
-set background=dark
 
 " * Key Remaps
 
