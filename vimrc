@@ -37,8 +37,16 @@ endif
 au BufWinLeave * silent! mkview   " make vim save view (state) (folds, cursor, etc)
 au BufWinEnter * silent! loadview " make vim load view (state) (folds, cursor, etc)
 
-" auto switch to folder where editing file
-set autochdir
+" automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
+
+" au FocusLost * :silent! wall                 " Save on FocusLost
+" au FocusLost * call feedkeys("\<C-\>\<C-n>") " Return to normal mode on FocustLost
+
+" absolute line numbers in insert mode, relative otherwise for easy movement
+au InsertEnter * :set nu
+au InsertLeave * :set rnu
+
 " this is the same as the above command for versions of vim
 " that don't support autochdir
 " autocmd BufEnter * cd %:p:h
@@ -49,6 +57,9 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 set tags=tags;/
+
+set pastetoggle=<F8> "enable paste toggle and map it to F8
+set autochdir " cd into directory of opened file
 
 " * Basics
 syntax on                          " syntax highlighting is nifty! let's turn it on!
@@ -152,6 +163,10 @@ colorscheme molokai
 
 " * Key Remaps
 
+" use sane regexes
+nnoremap / /\v
+vnoremap / /\v
+
 " use <F6> to cycle through split windows (and <Shift>+<F6> to cycle backwards
 nnoremap <F6> <C-W>w
 nnoremap <S-F6> <C-W>W
@@ -169,20 +184,17 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <leader>l :set list!<cr>
 
 " edit vim config
-nmap <leader>V :tabedit $MYVIMRC<CR>
-
-" page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
-" `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
-" or <BkSpc> (like in `Netscape Navigator'):
-" NOTE: enabling this may make the space.vim plugin wonky
-"noremap <Space> <PageDown>
-"noremap <BS> <PageUp>
+nmap <leader>vv :tabedit $MYVIMRC<CR>
+nmap <leader>gg :tabedit $MYGVIMRC<CR>
 
 " Fuck you, help key.
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 nnoremap ; :
+
+" find merge conflict markers
+nmap <silent> <leader>cf <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
 " bind current to scroll
 nnoremap <leader>s :set scb!<CR>
@@ -195,6 +207,12 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Easier linewise reselection
 map <leader>v V`]
+
+" reselect visual block after indent change
+vnoremap < <gv
+vnoremap > >gv
+
+
 
 " Yankring
 nnoremap <silent> <F3> :YRShow<cr>
@@ -278,6 +296,10 @@ autocmd FileType perl set smartindent
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
 " (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
+
+" show git diff in window split when committing
+" broken if autochdir is enabled
+" autocmd FileType gitcommit DiffGitCached | wincmd p
 
 " recognize smarty files, add dictionary completion
 au BufRead,BufNewFile *.tpl set filetype=smarty

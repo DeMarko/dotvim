@@ -21,6 +21,8 @@ nmap <C-Tab> :tabnext<cr>
 nmap <C-S-Tab> :tabprev<cr>
 
 if has("gui_macvim")
+    nnoremap <silent> <SwipeLeft> :macaction _cycleWindowsBackwards:<CR>
+    nnoremap <silent> <SwipeRight> :macaction _cycleWindows:<CR>
     set guifont=Menlo:h12
     " For mac users (using the 'apple' key)
     map <D-S-]> gt
