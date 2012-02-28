@@ -84,3 +84,7 @@
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
     ignore = untracked
+[submodule "bundle/yankring"]
+	path = bundle/yankring
+	url = git://github.com/vim-scripts/YankRing.vim.git
+    ignore = untracked
