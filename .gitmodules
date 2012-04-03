@@ -88,3 +88,6 @@
 	path = bundle/yankring
 	url = git://github.com/vim-scripts/YankRing.vim.git
     ignore = untracked
+[submodule "bundle/pathogen"]
+	path = bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
