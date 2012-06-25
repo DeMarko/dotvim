@@ -45,8 +45,8 @@ au BufWritePost .vimrc so ~/.vimrc
 " au FocusLost * call feedkeys("\<C-\>\<C-n>") " Return to normal mode on FocustLost
 
 " absolute line numbers in insert mode, relative otherwise for easy movement
-au InsertEnter * :set nu
-au InsertLeave * :set rnu
+au InsertEnter * :set number
+au InsertLeave * :set relativenumber
 
 " this is the same as the above command for versions of vim
 " that don't support autochdir
