@@ -267,6 +267,16 @@ let g:NERDTreeHijackNetrw=1 " User instead of Netrw when doing an edit /foobar
 let g:NERDTreeDirArrows=0
 " disable warnings from NERDCommenter:
 let g:NERDShutUp = 1
+
+" TagBar
+let g:tagbar_width = 50
+let g:tagbar_autoclose = 1
+let g:tagbar_compact = 1
+nmap <F8> :TagbarToggle<CR>
+
+" PHPCtags for TagBar
+let g:tagbar_phpctags_bin='/home/djurado/bin/phpctags/phpctags'
+
 " * Text Formatting
 
 " get rid of the default style of C comments, and define a style with two stars
