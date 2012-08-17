@@ -3,8 +3,7 @@
 autocmd!
 filetype off
 runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
 filetype plugin indent on
 
 set nocompatible                   " screw vi compatibility, only geezers use vi
@@ -281,7 +280,7 @@ endif
 " Syntastic options
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_phpcs_conf = "--standard=/home/".expand($USER)."/development/Web/tests/standards/stable-ruleset.xml"
+let g:syntastic_phpcs_conf = "--standard=/home/".expand($USER)."/development/Web/tests/standards/stable-ruleset.xml -d memory_limit=512M"
 "let g:syntastic_phpcs_disable = 1
 
 " wtf LustyExplorer, most annoying warning EVER
