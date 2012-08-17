@@ -16,6 +16,8 @@ set modelines=0                    " prevents known security exploit
 set backup                        " enable backups
 silent execute '!mkdir -p $HOME/.vim/tmp/backup'
 set backupdir=$HOME/.vim/tmp/backup// " backups
+" Make Vim able to edit crontab files again.
+set backupskip=/tmp/*,/private/tmp/*"
 silent execute '!mkdir -p $HOME/.vim/tmp/swap'
 set directory=$HOME/.vim/tmp/swap//   " swap files
 silent execute '!mkdir -p $HOME/.vim/tmp/views'
@@ -62,8 +64,6 @@ set tabstop=4
 set expandtab
 set tags=tags;/
 
-set pastetoggle=<F8> "enable paste toggle and map it to F8
-set autochdir " cd into directory of opened file
 
 " * Basics
 syntax on                          " syntax highlighting is nifty! let's turn it on!
@@ -72,6 +72,8 @@ set showcmd                        " show partially-typed commands in the status
 set ruler                          " add a useful ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
 set hidden
+
+
 
 " Statusline Hijinx
 set statusline=%f       "tail of the filename
@@ -147,8 +149,27 @@ if version >= 703
 else
     set number
 endif
+set pastetoggle=<F9> "enable paste toggle and map it to F8
+set autochdir " cd into directory of opened file
+set autoread " when a file is changed outside of vim, automatically read it again
+set splitright " split new windows on the right of the current one
+set splitbelow " split new windows below the current one
+set fillchars=diff:⣿,vert:│
+set title " why this doesn't happen by default is a mystery
+set colorcolumn=+1
 set wildmenu                       " enables a menu at the bottom of the vim/gvim window
 set wildmode=longest,list          " complete on tab to longest match, present match list on second tab
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=migrations                       " Django migrations
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.orig                           " Merge resolution files"
 set ttyfast                        " enable support for higher speed terminal connections
 set showmatch                      " show brace matching
 set matchtime=3                    " for 3 milliseconds
@@ -160,13 +181,20 @@ set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
                               " and ~ convert case over line breaks;
                               " also have the cursor keys wrap in insert mode
 
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " invisible characters to show
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 colorscheme molokai
 
 " * Key Remaps
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
 
+" "Refocus" folds
+nnoremap ,z zMzvzz"
 " use sane regexes
 nnoremap / /\v
 vnoremap / /\v
@@ -289,6 +317,8 @@ set comments+=fb:\ *
 " treat lines starting with a quote mark as comments (for 'Vim' files)
 set comments+=b:\"
 
+" Resize splits when the window is resized
+au VimResized * :wincmd =
 
 " * Text Formatting -- Specific File Formats
 
@@ -502,15 +532,3 @@ function! NERDTreeQuit()
 endfunction
 "autocmd WinEnter * call NERDTreeQuit()
 
-" toggle quickfix window
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
-function! QFixToggle(forced)
-  if exists("g:qfix_win") && a:forced == 0
-    cclose
-    unlet g:qfix_win
-  else
-    copen 10
-    let g:qfix_win = bufnr("$")
-  endif
-endfunction
-nmap <silent> \ :QFix<CR>
