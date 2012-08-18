@@ -116,7 +116,7 @@ set statusline+=%{&paste?'[paste]':''}
 set statusline+=%*
 
 set statusline+=%=      "left/right separator
-set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
+set statusline+=%{StatuslineCurrentHighlight()}\ \ " current highlight
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
@@ -368,6 +368,10 @@ autocmd FileType php set foldlevel=1
 
 " OmniCompletion for std lib functions and so forth (C-X, C-o)
 set omnifunc=syntaxcomplete#Complete
+
+" powerline is the new hotness
+let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
 " * Functions
 
