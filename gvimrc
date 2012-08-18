@@ -21,6 +21,8 @@ nmap <C-Tab> :tabnext<cr>
 nmap <C-S-Tab> :tabprev<cr>
 
 if has("gui_macvim")
+    " Full screen means FULL screen
+    set fuoptions=maxvert,maxhorz
     nnoremap <silent> <SwipeLeft> :macaction _cycleWindowsBackwards:<CR>
     nnoremap <silent> <SwipeRight> :macaction _cycleWindows:<CR>
     set guifont=Menlo:h12

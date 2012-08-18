@@ -153,7 +153,7 @@ set autochdir " cd into directory of opened file
 set autoread " when a file is changed outside of vim, automatically read it again
 set splitright " split new windows on the right of the current one
 set splitbelow " split new windows below the current one
-set fillchars=diff:⣿,vert:│
+set fillchars=diff:⣿,vert:|
 set title " why this doesn't happen by default is a mystery
 set colorcolumn=+1
 set wildmenu                       " enables a menu at the bottom of the vim/gvim window
