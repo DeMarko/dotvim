@@ -245,9 +245,31 @@ let g:LustyExplorerSuppressRubyWarning = 1
 " fix bundled directory for stylesheets
 "let g:MarkdownPreviewDefaultStyles = $HOME.'/.vim/bundle/markdown-preview/stylesheets/'
 
+" Fugitive
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gco :Gcheckout<cr>
+nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gr :Gremove<cr>
+
 " NERDTree
+noremap  <F4> :NERDTreeToggle<cr>
+inoremap <F4> <esc>:NERDTreeToggle<cr>
 let g:NERDTreeHijackNetrw=1 " User instead of Netrw when doing an edit /foobar
 let g:NERDTreeDirArrows=0
+let NERDTreeHighlightCursorline = 1
+let NERDTreeIgnore = ['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index',
+                    \ 'xapian_index', '.*.pid', 'monitor.py', '.*-fixtures-.*.json',
+                    \ '.*\.o$', 'db.db', 'tags.bak']
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDChristmasTree = 1
+let NERDTreeChDirMode = 2
 " disable warnings from NERDCommenter:
 let g:NERDShutUp = 1
 
