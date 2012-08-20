@@ -291,7 +291,7 @@ let g:tagbar_compact = 1
 nmap <F8> :TagbarToggle<CR>
 
 " PHPCtags for TagBar
-let g:tagbar_phpctags_bin='/home/djurado/bin/phpctags/phpctags'
+let g:tagbar_phpctags_bin='$HOME/bin/phpctags/phpctags'
 
 " * Text Formatting
 

@@ -22,6 +22,22 @@ this is the quickest way to install these files
 
     git submodule foreach git pull origin master
 
+### phpctags ###
+I use [phpctags](https://github.com/techlivezheng/phpctags) instead of ctags for PHP files. If you open a .php without it installed on your system, vim will barf several errors. Here's instructions on how to install it:
+
+    # I keep phpctags in ~/bin/, you can create it or change the phpctags directory
+    cd ~/bin
+    git clone git://github.com/techlivezheng/phpctags.git
+    curl -s http://getcomposer.org/installer | php
+    # at this point, I had to resolve some configs in my php.ini file, it's in /etc/
+    # OS X provides a default, feel free to rename it to php.ini
+    # composer will tell you what config you need to fix
+    # run the line above these comments once you fix the configs
+
+    # post successful composer.phar download
+    cd phpctags
+    php ../composer.phar install
+
 ### disclaimer ###
 I write a good amount of PHP at work so it may lean a bit in that direction
 
