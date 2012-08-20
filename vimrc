@@ -208,6 +208,9 @@ nnoremap <silent> <leader>y :YRShow<cr>
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
+" CtrlP
+nnoremap <leader>p :CtrlP<CR>
+
 " Gundo keymaps
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <leader>g :GundoToggle<CR>
@@ -272,6 +275,14 @@ let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 " disable warnings from NERDCommenter:
 let g:NERDShutUp = 1
+
+" CtrlP
+let g:ctrlp_working_path_mode = 'rc'
+" makes CtrlP open in tabs instead of current buffer
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+  \ }
 
 " TagBar
 let g:tagbar_width = 50
