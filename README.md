@@ -29,6 +29,7 @@ I use [phpctags](https://github.com/techlivezheng/phpctags) instead of ctags for
     cd ~/bin
     git clone git://github.com/techlivezheng/phpctags.git
     curl -s http://getcomposer.org/installer | php
+    
     # at this point, I had to resolve some configs in my php.ini file, it's in /etc/
     # OS X provides a default, feel free to rename it to php.ini
     # composer will tell you what config you need to fix
