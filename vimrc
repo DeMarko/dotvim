@@ -109,6 +109,7 @@ set splitright " split new windows on the right of the current one
 set splitbelow " split new windows below the current one
 set fillchars=diff:⣿,vert:│
 set title " why this doesn't happen by default is a mystery
+let &titleold=fnamemodify(&shell, ":t") " string to restore the title to when exiting Vim
 set colorcolumn=+1
 set wildmenu                       " enables a menu at the bottom of the vim/gvim window
 set wildmode=longest,list          " complete on tab to longest match, present match list on second tab
@@ -129,6 +130,7 @@ set matchtime=3                    " for 3 milliseconds
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
+set shortmess=aoOtI           " list of flags to make messages shorter
 
 set wildchar=<TAB>            " have command-line completion <Tab>
 set whichwrap=h,l,~,[,]       " have the h and l cursor keys wrap between
