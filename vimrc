@@ -433,3 +433,16 @@ function! NERDTreeQuit()
 endfunction
 "autocmd WinEnter * call NERDTreeQuit()
 
+"Opens the file for a class under cursor with <leader>e
+"You can set g:EtsyDir to the root of Etsy's repo
+"or leave blank to default to ~/development/Etsyweb
+function! OpenEtsyFile()
+    if !exists('g:EtsyDir')
+        let g:EtsyDir = $HOME . '/development/Etsyweb'
+    endif
+    let fn = expand("<cword>")
+    let fn = substitute(fn, '_', '/', 'g')
+    let fn = g:EtsyDir . "/phplib/" . fn . ".php"
+    tabe `=fn`
+endfunction
+nnoremap <leader>e :call OpenEtsyFile()<CR>
