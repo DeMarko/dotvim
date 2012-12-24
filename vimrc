@@ -318,6 +318,9 @@ augroup filetype
 augroup END
 " in human-language files, automatically format everything at 72 chars:
 autocmd FileType mail,human,markdown set formatoptions+=t textwidth=78
+" set 2 space tabs for html and ruby
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
 " for actual C (not C++) programming where comments have explicit end
