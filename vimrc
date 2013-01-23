@@ -83,7 +83,9 @@ set history=1000                   " keeps a thousand lines of history
 set magic                          " allows pattern matching with special characters
 set backspace=2                    " make backspace work like normal
 set visualbell                     " visual bell instead of annoying beeping
-set mouse=a                        " enable full mouse support in the console
+if has("mouse")
+    set mouse=a                    " enable full mouse support in the console
+endif
 set virtualedit=onemore            " end of the line? what's that?
 " * Search & Replace
 set ignorecase                     " make searches case-insensitive
