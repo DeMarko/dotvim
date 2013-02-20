@@ -106,3 +106,9 @@
 [submodule "bundle/librarian"]
 	path = bundle/librarian
 	url = git://github.com/malkomalko/vim-librarian.vim.git
+[submodule "bundle/nerdtree-tabs"]
+	path = bundle/nerdtree-tabs
+	url = git://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "bundle/rooter"]
+	path = bundle/rooter
+	url = git://github.com/airblade/vim-rooter.git

@@ -210,17 +210,29 @@ nnoremap <silent> <F3> :YRShow<cr>
 nnoremap <silent> <leader>y :YRShow<cr>
 
 " NERDTree
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
+" delimitMate
+let g:delimitMate_no_esc_mapping = 1
 
 " CtrlP
 nnoremap <leader>p :CtrlP<CR>
 
+" Vim Librarian
+let g:librarian_filename = '~/.vim/tmp/vim_librarian'
+nnoremap <leader>ka :VLBookmark<space>
+nnoremap <leader>kd :VLDelBookmark<space>
+nnoremap <leader>ke :execute "split" g:librarian_filename<cr>
+nnoremap <leader>kf :VLQFOpenBookmarksFor<space>
+nnoremap <leader>kl :VLQFOpenBookmarks<cr>
+nnoremap <leader>ko :VLOpenBookmarks<space>
+
+" Rooter
+let g:rooter_manual_only = 1
+
 " Gundo keymaps
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <leader>g :GundoToggle<CR>
-
-" highlight long lines in file
-nnoremap <leader>long :HighlightLongLines<CR>
 
 " find out who's to blame for the current line
 nnoremap <leader>b :Gblame<CR>
@@ -369,75 +381,6 @@ let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 1
 
 " * Functions
-
-"define :HighlightLongLines command to highlight the offending parts of
-"lines that are longer than the specified length (defaulting to 80)
-command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
-function! s:HighlightLongLines(width)
-    let targetWidth = a:width != '' ? a:width : 79
-    if targetWidth > 0
-        exec 'match Todo /\%>' . (targetWidth) . 'v/'
-    else
-        echomsg "Usage: HighlightLongLines [natural number]"
-    endif
-endfunction
-
-"return a list containing the lengths of the long lines in this buffer
-function! s:LongLines()
-    let threshold = (&tw ? &tw : 80)
-    let spaces = repeat(" ", &ts)
-
-    let long_line_lens = []
-
-    let i = 1
-    while i <= line("$")
-        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
-        if len > threshold
-            call add(long_line_lens, len)
-        endif
-        let i += 1
-    endwhile
-
-    return long_line_lens
-endfunction
-
-"find the median of the given array of numbers
-function! s:Median(nums)
-    let nums = sort(a:nums)
-    let l = len(nums)
-
-    if l % 2 == 1
-        let i = (l-1) / 2
-        return nums[i]
-    else
-        return (nums[l/2] + nums[(l/2)-1]) / 2
-    endif
-endfunction
-
-" close the NERDTree window if there are no other open buffers
-function! NERDTreeQuit()
-  redir => buffersoutput
-  silent buffers
-  redir END
-"                     1BufNo  2Mods.     3File           4LineNo
-  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
-  let windowfound = 0
-
-  for bline in split(buffersoutput, "\n")
-    let m = matchlist(bline, pattern)
-
-    if (len(m) > 0)
-      if (m[2] =~ '..a..')
-        let windowfound = 1
-      endif
-    endif
-  endfor
-
-  if (!windowfound)
-    quitall
-  endif
-endfunction
-"autocmd WinEnter * call NERDTreeQuit()
 
 "Opens the file for a class under cursor with <leader>e
 "You can set g:EtsyDir to the root of Etsy's repo
