@@ -58,7 +58,7 @@ here are some of the things I couldn't submodule:
 +  Justin Constantino's [candycode][]
 +  Lars H. Nielsen's [wombat][]
   
-### Shoutz ###
+### shoutz ###
 +  Ben Hamill for teaching me [how to update submodules in cloned repos
    properly](https://twitter.com/benhamill/status/304330375088467968)
 
