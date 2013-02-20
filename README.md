@@ -22,6 +22,12 @@ this is the quickest way to install these files
 
     git submodule foreach git pull origin master
 
+Once you update submodules, if you commit the result, you can update your
+other repo copies by doing:
+
+    git pull
+    git submodule update
+
 ### phpctags ###
 I use [phpctags](https://github.com/techlivezheng/phpctags) instead of ctags for PHP files. If you open a .php without it installed on your system, vim will barf several errors. Here's instructions on how to install it:
 
@@ -52,6 +58,8 @@ here are some of the things I couldn't submodule:
 +  Rainer M. Schmid's [valgrind.vim][]
 +  Todd Werth's [ir_black][]
 +  Justin Constantino's [candycode][]
++  Ben Hamill for teaching me [how to update submodules in cloned repos
+   properly][https://twitter.com/benhamill/status/304330375088467968]
 
 [MacVim]: http://code.google.com/p/macvim/ "MacVim.app"
 [molokai]: http://winterdom.com/2008/08/molokaiforvim "Molokai Colorscheme"
