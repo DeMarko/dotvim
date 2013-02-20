@@ -103,3 +103,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "bundle/librarian"]
+	path = bundle/librarian
+	url = git://github.com/malkomalko/vim-librarian.vim.git
