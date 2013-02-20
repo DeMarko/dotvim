@@ -249,15 +249,11 @@ endif
 
 " * Plugin Options
 
-" disable PIV's PHP autofolding
-"let g:DisableAutoPHPFolding = 1
-
 " Syntastic options
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_phpcs_conf = "--standard=/home/".expand($USER)."/development/Web/tests/standards/stable-ruleset.xml -d memory_limit=512M"
-"let g:syntastic_phpcs_disable = 1
-let g:syntastic_phpmd_disable = 1
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args = "--standard=/home/".expand($USER)."/development/Web/tests/standards/stable-ruleset.xml -d memory_limit=512M"
 
 " wtf LustyExplorer, most annoying warning EVER
 let g:LustyExplorerSuppressRubyWarning = 1
@@ -302,7 +298,7 @@ let g:ctrlp_prompt_mappings = {
   \ }
 
 " TagBar
-let g:tagbar_width = 50
+let g:tagbar_width = 40
 let g:tagbar_autoclose = 1
 let g:tagbar_compact = 1
 nmap <F8> :TagbarToggle<CR>
