@@ -51,21 +51,22 @@ I write a good amount of PHP at work so it may lean a bit in that direction
 ### acknowledgements ###
 here are some of the things I couldn't submodule:
 
-+  tomasr's [molokai][] 
-+  Lars H. Nielsen's [wombat][]
 +  Peter Hodge's [php.vim][]
 +  Ken Earl's [smarty.vim][]
 +  Rainer M. Schmid's [valgrind.vim][]
 +  Todd Werth's [ir_black][]
 +  Justin Constantino's [candycode][]
++  Lars H. Nielsen's [wombat][]
+  
+### Shoutz ###
 +  Ben Hamill for teaching me [how to update submodules in cloned repos
    properly](https://twitter.com/benhamill/status/304330375088467968)
 
 [MacVim]: http://code.google.com/p/macvim/ "MacVim.app"
-[molokai]: http://winterdom.com/2008/08/molokaiforvim "Molokai Colorscheme"
 [wombat]: http://dengmao.wordpress.com/2007/01/22/vim-color-scheme-wombat/ "Wombat Colorscheme"
-[php.vim]: http://www.vim.org/scripts/script.php?script_id=1571 "PHP Syntax"
-[smarty.vim]: http://www.vim.org/scripts/script.php?script_id=1798 "Smarty Syntax"
-[valgrind.vim]: http://www.vim.org/scripts/script.php?script_id=607 "Valgrind navigator"
 [candycode]: http://www.vim.org/scripts/script.php?script_id=1635
 [ir_black]: http://blog.infinitered.com/entries/show/8
+[smarty.vim]: http://www.vim.org/scripts/script.php?script_id=1798 "Smarty Syntax"
+[valgrind.vim]: http://www.vim.org/scripts/script.php?script_id=607 "Valgrind navigator"
+
+
