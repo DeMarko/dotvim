@@ -59,7 +59,7 @@ here are some of the things I couldn't submodule:
 +  Todd Werth's [ir_black][]
 +  Justin Constantino's [candycode][]
 +  Ben Hamill for teaching me [how to update submodules in cloned repos
-   properly][https://twitter.com/benhamill/status/304330375088467968]
+   properly](https://twitter.com/benhamill/status/304330375088467968)
 
 [MacVim]: http://code.google.com/p/macvim/ "MacVim.app"
 [molokai]: http://winterdom.com/2008/08/molokaiforvim "Molokai Colorscheme"
