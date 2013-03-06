@@ -112,6 +112,3 @@
 [submodule "bundle/rooter"]
 	path = bundle/rooter
 	url = git://github.com/airblade/vim-rooter.git
-[submodule "bundle/gitgutter"]
-	path = bundle/gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
