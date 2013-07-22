@@ -215,6 +215,10 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 " delimitMate
 let g:delimitMate_no_esc_mapping = 1
 
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='light'
+
 " CtrlP
 nnoremap <leader>p :CtrlP<CR>
 
@@ -377,9 +381,6 @@ autocmd FileType php set foldlevel=1
 " OmniCompletion for std lib functions and so forth (C-X, C-o)
 set omnifunc=syntaxcomplete#Complete
 
-" powerline is the new hotness
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_enabled = 1
 
 " * Functions
 
