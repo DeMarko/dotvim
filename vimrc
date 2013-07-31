@@ -203,8 +203,6 @@ map <leader>v V`]
 vnoremap < <gv
 vnoremap > >gv
 
-
-
 " Yankring
 nnoremap <silent> <F3> :YRShow<cr>
 nnoremap <silent> <leader>y :YRShow<cr>
