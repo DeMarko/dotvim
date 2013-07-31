@@ -18,10 +18,6 @@
 	path = bundle/space
 	url = http://github.com/scrooloose/vim-space.git
     ignore = untracked
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = http://github.com/msanders/snipmate.vim.git
-    ignore = untracked
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
