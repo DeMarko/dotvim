@@ -120,3 +120,6 @@
 [submodule "bundle/snippets"]
 	path = bundle/snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "bundle/matchmaker"]
+	path = bundle/matchmaker
+	url = https://github.com/qstrahl/vim-matchmaker
