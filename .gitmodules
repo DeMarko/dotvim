@@ -30,10 +30,6 @@
 	path = bundle/surround
 	url = http://github.com/tpope/vim-surround.git
     ignore = untracked
-[submodule "bundle/PIV"]
-	path = bundle/PIV
-	url = http://github.com/spf13/PIV.git
-    ignore = dirty
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = http://github.com/mileszs/ack.vim.git
@@ -126,3 +122,6 @@
 [submodule "bundle/enhanced-js"]
 	path = bundle/enhanced-js
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "bundle/phpfolding"]
+	path = bundle/phpfolding
+	url = https://github.com/pekepeke/phpfolding.vim
