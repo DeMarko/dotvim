@@ -123,3 +123,6 @@
 [submodule "bundle/matchmaker"]
 	path = bundle/matchmaker
 	url = https://github.com/qstrahl/vim-matchmaker
+[submodule "bundle/enhanced-js"]
+	path = bundle/enhanced-js
+	url = https://github.com/jelera/vim-javascript-syntax.git
