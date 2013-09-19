@@ -293,10 +293,9 @@ let g:NERDShutUp = 1
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'rc'
-let g:ctrlp_custom_ignore = '^tmp'
 let g:ctrlp_max_depth = 100
 let g:ctrlp_max_files = 100000
-let g:ctrlp_custom_ignore = 1
+let g:ctrlp_custom_ignore = '\v^tmp'
 let g:ctrlp_clear_cache_on_exit = 0 " I jump in and out of vim a lot, I should probably stop doing that
 " makes CtrlP open in tabs instead of current buffer
 let g:ctrlp_prompt_mappings = {
