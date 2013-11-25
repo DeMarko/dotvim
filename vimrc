@@ -246,6 +246,10 @@ au BufNewFile,BufRead *.html map <leader>ft Vatzf
 if version >= 703
     " Ack
     map <leader>a :Ack<space>
+    nnoremap <leader>* :Ack! '\b<c-r><c-w>\b'<cr>
+    if executable('ag')
+        let g:ackprg = 'ag --nogroup --nocolor --column'
+    endif
 endif
 
 
