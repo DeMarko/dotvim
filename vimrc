@@ -104,7 +104,7 @@ if version >= 703
 else
     set number
 endif
-set pastetoggle=<F9> "enable paste toggle and map it to F8
+set pastetoggle=<F2> "enable paste toggle and map it to <F2>
 set autochdir " cd into directory of opened file
 set autoread " when a file is changed outside of vim, automatically read it again
 set splitright " split new windows on the right of the current one
