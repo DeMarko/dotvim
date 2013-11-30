@@ -216,6 +216,7 @@ let g:delimitMate_no_esc_mapping = 1
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='light'
+let g:airline#extensions#tabline#enabled = 1
 
 " CtrlP
 nnoremap <leader>p :CtrlP<CR>
@@ -249,6 +250,10 @@ if version >= 703
     nnoremap <leader>* :Ack! '\b<c-r><c-w>\b'<cr>
     if executable('ag')
         let g:ackprg = 'ag --nogroup --nocolor --column'
+        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+        " ag is fast enough that CtrlP doesn't need to cache
+        let g:ctrlp_use_caching = 0
     endif
 endif
 
