@@ -215,7 +215,8 @@ let g:delimitMate_no_esc_mapping = 1
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='light'
+"let g:airline_theme='light'
+let g:airline_theme = 'airlineish'
 let g:airline#extensions#tabline#enabled = 1
 
 " CtrlP

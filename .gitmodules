@@ -125,3 +125,6 @@
 [submodule "bundle/phpfolding"]
 	path = bundle/phpfolding
 	url = https://github.com/pekepeke/phpfolding.vim
+[submodule "bundle/airlineish"]
+	path = bundle/airlineish
+	url = https://github.com/paranoida/vim-airlineish.git
