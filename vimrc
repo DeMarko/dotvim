@@ -250,10 +250,6 @@ if version >= 703
     nnoremap <leader>* :Ack! '\b<c-r><c-w>\b'<cr>
     if executable('ag')
         let g:ackprg = 'ag --nogroup --nocolor --column'
-        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-        " ag is fast enough that CtrlP doesn't need to cache
-        let g:ctrlp_use_caching = 0
     endif
 endif
 
@@ -263,14 +259,10 @@ endif
 " Syntastic options
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=/home/".expand($USER)."/development/Web/tests/standards/stable-ruleset.xml -d memory_limit=512M"
-
-" wtf LustyExplorer, most annoying warning EVER
-let g:LustyExplorerSuppressRubyWarning = 1
-
-" fix bundled directory for stylesheets
-"let g:MarkdownPreviewDefaultStyles = $HOME.'/.vim/bundle/markdown-preview/stylesheets/'
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
@@ -306,6 +298,12 @@ let g:ctrlp_max_depth = 100
 let g:ctrlp_max_files = 100000
 let g:ctrlp_custom_ignore = '\v^tmp'
 let g:ctrlp_clear_cache_on_exit = 0 " I jump in and out of vim a lot, I should probably stop doing that
+if executable('ag')
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
 " makes CtrlP open in tabs instead of current buffer
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
