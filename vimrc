@@ -263,7 +263,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=/home/".expand($USER)."/development/Web/tests/standards/stable-ruleset.xml -d memory_limit=512M"
+let g:syntastic_php_phpcs_args = "--standard=/home/".expand($USER)."/development/Etsyweb/tests/standards/stable-ruleset.xml -d memory_limit=512M"
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
