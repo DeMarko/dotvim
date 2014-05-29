@@ -128,3 +128,6 @@
 [submodule "bundle/airlineish"]
 	path = bundle/airlineish
 	url = https://github.com/paranoida/vim-airlineish.git
+[submodule "bundle/easy-align"]
+	path = bundle/easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
