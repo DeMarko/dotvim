@@ -364,6 +364,8 @@ autocmd FileType make set noexpandtab shiftwidth=8
 " autocmd FileType gitcommit DiffGitCached | wincmd p
 
 " recognize smarty files, add dictionary completion
+let g:smarty_left_delim = "{%"
+let g:smarty_right_delim = "%}"
 au BufRead,BufNewFile *.tpl set filetype=smarty
 au Filetype smarty exec('set dictionary=$HOME/.vim/syntax/smarty.vim')
 au Filetype smarty set complete+=k

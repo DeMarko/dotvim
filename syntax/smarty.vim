@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Smarty Templates
 " Maintainer:	Manfred Stienstra manfred.stienstra@dwerg.net
-" Last Change:  Fri Apr 12 10:33:51 CEST 2002 
+" Last Change:  Fri Apr 12 10:33:51 CEST 2002
 " Filenames:    *.tpl
 " URL:		http://www.dwerg.net/download/vim/smarty.vim
 
@@ -19,7 +19,7 @@ endif
 syn case ignore
 
 runtime! syntax/html.vim
-"syn cluster htmlPreproc add=smartyUnZone
+syn cluster htmlPreproc add=smartyUnZone
 
 syn keyword smartyTagName capture config_load include include_php
 syn keyword smartyTagName insert if elseif else ldelim rdelim literal
@@ -30,7 +30,7 @@ syn keyword smartyTagName html_options html_radios html_select_date
 syn keyword smartyTagName html_select_time html_table mailto
 syn keyword smartyTagName math popup popup_init textformat
 
-syn keyword smartyInFunc ne eq == != > < >= <= === ! % 
+syn keyword smartyInFunc ne eq == != > < >= <= === ! %
 
 syn match smartyProperty contained "file="
 syn match smartyProperty contained "loop="
@@ -185,9 +185,7 @@ syn match smartyProperty contained "vauto="
 syn match smartyProperty contained "wrap_cut="
 
 
-
-
-syn match smartyConstant "\$smarty" 
+syn match smartyConstant "\$smarty"
 
 syn match smartyDollarSign      contained "\$"
 syn match smartyMaybeDollarSign contained "\([^\\]\|\\\\\)\@<=\$"
@@ -205,15 +203,22 @@ syn region smartyStringDouble matchgroup=Constant start=+"+  end=+"+  contains=s
 
 syn match smartyGlue "\.\|\->"
 
+function! s:check_defined(variable, default)
+  if !exists(a:variable)
+    let {a:variable} = a:default
+  endif
+endfunction
 
-syn region smartyModifier  matchgroup=Statement start=+|+   end=+\ze:\|\>+
-syn region smartyParameter matchgroup=Statement start=+:+   end=+\s\|}+ contains=smartyVariable, smartyDollarSign, smartyGlue, smartyInBracket, smartyStringDouble
-syn region smartyZone     matchgroup=Statement   start="{"   end="}" contains=smartyParameter, smartyProperty, smartyGlue, smartyModifier, smartyDollarSign, smartyInBracket, smartyStringDouble, smartyVariable, smartyString, smartyBlock, smartyTagName, smartyConstant, smartyInFunc
-syn region smartyComment  matchgroup=Comment   start="{\*" end="\*}"
+call s:check_defined('g:smarty_left_delim', "{")
+call s:check_defined('g:smarty_right_delim', "}")
 
+syn region smartyModifier  matchgroup=Statement start=+|+       end=+\ze:\|\>+
+execute 'syn region smartyParameter matchgroup=Statement start=+:+       end=+\s\|' .g:smarty_right_delim. '+ contains=smartyVariable, smartyDollarSign, smartyGlue, smartyInBracket, smartyStringDouble'
+execute 'syn region smartyZone      matchgroup=Statement start=/'.g:smarty_left_delim.'/ end=/'.g:smarty_right_delim.'/ contains=smartyParameter, smartyProperty, smartyGlue, smartyModifier, smartyDollarSign, smartyInBracket, smartyStringDouble, smartyVariable, smartyString, smartyBlock, smartyTagName, smartyConstant, smartyInFunc'
+execute 'syn region smartyComment   matchgroup=Comment   start=/'.g:smarty_left_delim.'\*/ end=/\*'.g:smarty_right_delim.'/'
 syn region  htmlString   contained start=+"+ end=+"+ contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc,smartyZone
 syn region  htmlString   contained start=+'+ end=+'+ contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc,smartyZone
-  syn region htmlLink start="<a\>\_[^>]*\<href\>" end="</a>"me=e-4 contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,@htmlPreproc,smartyZone
+syn region htmlLink start="<a\>\_[^>]*\<href\>" end="</a>"me=e-4 contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,@htmlPreproc,smartyZone
 
 
 if version >= 508 || !exists("did_smarty_syn_inits")
@@ -239,7 +244,7 @@ if version >= 508 || !exists("did_smarty_syn_inits")
   HiLink smartyInBacktick      Statement
   HiLink smartyModifier        Special
   delcommand HiLink
-endif 
+endif
 
 let b:current_syntax = "smarty"
 
