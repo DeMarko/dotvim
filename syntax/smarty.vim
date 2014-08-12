@@ -1,9 +1,8 @@
 " Vim syntax file
 " Language:	Smarty Templates
-" Maintainer:	Manfred Stienstra manfred.stienstra@dwerg.net
-" Last Change:  Fri Apr 12 10:33:51 CEST 2002
+" Maintainer:	Dannel Jurado (@DeMarko)
+" Last Change:  Aug 12 2014
 " Filenames:    *.tpl
-" URL:		http://www.dwerg.net/download/vim/smarty.vim
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
