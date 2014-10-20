@@ -264,6 +264,7 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=/home/".expand($USER)."/development/Etsyweb/tests/standards/stable-ruleset.xml -d memory_limit=512M"
+let g:syntastic_scss_scss_lint_args = "--config=/usr/etsy/buildaSCSS/.scss-lint.yml"
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
@@ -358,6 +359,8 @@ autocmd FileType perl set smartindent
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
 " (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
+
+autocmd FileType scss setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " show git diff in window split when committing
 " broken if autochdir is enabled

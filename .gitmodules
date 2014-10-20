@@ -134,3 +134,6 @@
 [submodule "bundle/tomorrow-theme"]
 	path = bundle/tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule "bundle/scss"]
+	path = bundle/scss
+	url = https://github.com/cakebaker/scss-syntax.vim.git
