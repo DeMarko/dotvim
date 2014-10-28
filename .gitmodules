@@ -137,3 +137,6 @@
 [submodule "bundle/scss"]
 	path = bundle/scss
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "bundle/bracketed-paste"]
+	path = bundle/bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
