@@ -140,3 +140,6 @@
 [submodule "bundle/bracketed-paste"]
 	path = bundle/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
+[submodule "bundle/mustache"]
+	path = bundle/mustache
+	url = https://github.com/mustache/vim-mustache-handlebars.git
