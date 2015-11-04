@@ -298,7 +298,8 @@ let g:NERDShutUp = 1
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_max_depth = 100
 let g:ctrlp_max_files = 100000
-let g:ctrlp_custom_ignore = '\v^tmp'
+let g:ctrlp_custom_ignore = '\v^tmp|current'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_clear_cache_on_exit = 0 " I jump in and out of vim a lot, I should probably stop doing that
 if executable('ag')
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore

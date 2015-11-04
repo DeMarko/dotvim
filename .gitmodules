@@ -95,9 +95,6 @@
 [submodule "bundle/nerdtree-tabs"]
 	path = bundle/nerdtree-tabs
 	url = git://github.com/jistr/vim-nerdtree-tabs.git
-[submodule "bundle/rooter"]
-	path = bundle/rooter
-	url = git://github.com/airblade/vim-rooter.git
 [submodule "bundle/airline"]
 	path = bundle/airline
 	url = https://github.com/bling/vim-airline.git
@@ -143,3 +140,6 @@
 [submodule "bundle/mustache"]
 	path = bundle/mustache
 	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule "bundle/ctrlp-py-matcher"]
+	path = bundle/ctrlp-py-matcher
+	url = https://github.com/FelikZ/ctrlp-py-matcher
