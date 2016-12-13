@@ -265,11 +265,10 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=/home/".expand($USER)."/development/Etsyweb/tests/standards/stable-ruleset.xml -d memory_limit=512M"
 let g:syntastic_scss_scss_lint_args = "--config=/usr/etsy/buildaSCSS/.scss-lint.yml"
-if getcwd() =~ '/Etsyweb\(/\|$\)'
-    let g:syntastic_javascript_checkers = ["eslint"]
-    let g:syntastic_javascript_eslint_exec = "/usr/lib/node_modules/etsy-eslint/node_modules/.bin/eslint"
-    let g:syntastic_javascript_eslint_args='--config /usr/lib/node_modules/etsy-eslint/config.json'
-endif
+let g:syntastic_javascript_checkers = ["eslint"]
+"let g:syntastic_javascript_eslint_exec='/usr/bin/eslint'
+let g:syntastic_javascript_eslint_exec='eslint_d'
+let g:syntastic_javascript_eslint_args='--config ' .expand($HOME) . "/.eslintrc"
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
@@ -351,7 +350,7 @@ augroup END
 " in human-language files, automatically format everything at 72 chars:
 autocmd FileType mail,human,markdown set formatoptions+=t textwidth=78
 " set 2 space tabs for html and ruby
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
@@ -365,8 +364,6 @@ autocmd FileType perl set smartindent
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
 " (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
-
-autocmd FileType scss setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " show git diff in window split when committing
 " broken if autochdir is enabled
