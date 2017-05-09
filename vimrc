@@ -26,13 +26,14 @@ set viewdir=$HOME/.vim/tmp/views//    " view files
 silent execute '!mkdir -p $HOME/.vim/tmp/yankring'
 let g:yankring_history_dir = '$HOME/.vim/tmp/yankring'
 silent execute '!mkdir -p $HOME/.vim/tmp/other/'
-let g:MarkdownPreviewTMP = '$HOME/.vim/tmp/other/'
 
 if version >= 703
     set undofile
     silent execute '!mkdir -p $HOME/.vim/tmp/undo'
     set undodir=~/.vim/tmp/undo// " undofiles
 endif
+
+set rtp+=~/.fzf
 
 " starts NERDTree for every file
 "autocmd VimEnter * exe 'NERDTree' | wincmd l
@@ -219,8 +220,21 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'airlineish'
 let g:airline#extensions#tabline#enabled = 1
 
-" CtrlP
-nnoremap <leader>p :CtrlP<CR>
+
+" FZF
+let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_buffers_jump = 1
+let g:fzf_action = {
+  \ 'enter': 'tabedit',
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+function! s:find_git_root()
+      return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+  endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+nnoremap <leader>p :ProjectFiles<CR>
 
 " Vim Librarian
 let g:librarian_filename = '~/.vim/tmp/vim_librarian'
@@ -243,17 +257,6 @@ nnoremap <leader>b :Gblame<CR>
 
 " fold html tags
 au BufNewFile,BufRead *.html map <leader>ft Vatzf
-
-" stuff I've only found works properly in 7.3
-if version >= 703
-    " Ack
-    map <leader>a :Ack<space>
-    nnoremap <leader>* :Ack! '\b<c-r><c-w>\b'<cr>
-    if executable('ag')
-        let g:ackprg = 'ag --nogroup --nocolor --column'
-    endif
-endif
-
 
 " * Plugin Options
 
@@ -297,25 +300,6 @@ let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 " disable warnings from NERDCommenter:
 let g:NERDShutUp = 1
-
-" CtrlP
-let g:ctrlp_working_path_mode = 'rc'
-let g:ctrlp_max_depth = 100
-let g:ctrlp_max_files = 100000
-let g:ctrlp_custom_ignore = '\v^tmp|current'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_clear_cache_on_exit = 0 " I jump in and out of vim a lot, I should probably stop doing that
-if executable('ag')
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
-endif
-" makes CtrlP open in tabs instead of current buffer
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': [],
-  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-  \ }
 
 " TagBar
 let g:tagbar_width = 40

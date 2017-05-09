@@ -30,10 +30,6 @@
 	path = bundle/surround
 	url = http://github.com/tpope/vim-surround.git
     ignore = untracked
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = http://github.com/mileszs/ack.vim.git
-    ignore = untracked
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
@@ -42,14 +38,6 @@
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
     ignore = dirty
-[submodule "bundle/markdown"]
-	path = bundle/markdown
-	url = https://github.com/tpope/vim-markdown.git
-    ignore = untracked
-[submodule "bundle/markdown-preview"]
-	path = bundle/markdown-preview
-	url = https://github.com/mkitt/markdown-preview.vim.git
-    ignore = untracked
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
@@ -86,9 +74,6 @@
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = https://github.com/tomasr/molokai
-[submodule "bundle/ctrlp"]
-	path = bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
 [submodule "bundle/librarian"]
 	path = bundle/librarian
 	url = git://github.com/malkomalko/vim-librarian.vim.git
@@ -131,15 +116,15 @@
 [submodule "bundle/tomorrow-theme"]
 	path = bundle/tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule "bundle/scss"]
-	path = bundle/scss
-	url = https://github.com/cakebaker/scss-syntax.vim.git
 [submodule "bundle/bracketed-paste"]
 	path = bundle/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
 [submodule "bundle/mustache"]
 	path = bundle/mustache
 	url = https://github.com/mustache/vim-mustache-handlebars.git
-[submodule "bundle/ctrlp-py-matcher"]
-	path = bundle/ctrlp-py-matcher
-	url = https://github.com/FelikZ/ctrlp-py-matcher
+[submodule "bundle/fzf"]
+	path = bundle/fzf
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "pack/default/start/polyglot"]
+	path = pack/default/start/polyglot
+	url = https://github.com/sheerun/vim-polyglot
