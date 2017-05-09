@@ -1,6 +1,6 @@
 vimfiles
 ========
-These are some of the files I use with vim everyday. They're mostly for use with vim 7.3 and [MacVim][]
+These are some of the files I use with vim everyday. They're mostly for use with vim 8 and [MacVim][]
 
 I recommend looking at [this guide](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/) if you're getting started or trying to clone my files and not having any luck.
 
@@ -51,9 +51,7 @@ I write a good amount of PHP at work so it may lean a bit in that direction
 ### acknowledgements ###
 here are some of the things I couldn't submodule:
 
-+  Peter Hodge's [php.vim][]
 +  Ken Earl's [smarty.vim][]
-+  Rainer M. Schmid's [valgrind.vim][]
 +  Todd Werth's [ir_black][]
 +  Justin Constantino's [candycode][]
 +  Lars H. Nielsen's [wombat][]
@@ -67,6 +65,5 @@ here are some of the things I couldn't submodule:
 [candycode]: http://www.vim.org/scripts/script.php?script_id=1635
 [ir_black]: http://blog.infinitered.com/entries/show/8
 [smarty.vim]: http://www.vim.org/scripts/script.php?script_id=1798 "Smarty Syntax"
-[valgrind.vim]: http://www.vim.org/scripts/script.php?script_id=607 "Valgrind navigator"
 
 
