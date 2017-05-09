@@ -125,3 +125,9 @@
 [submodule "pack/default/start/polyglot"]
 	path = pack/default/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "bundle/javascript-lib"]
+	path = bundle/javascript-lib
+	url = https://github.com/crusoexia/vim-javascript-lib.git
+[submodule "bundle/monokai-improved"]
+	path = bundle/monokai-improved
+	url = https://github.com/crusoexia/vim-monokai.git

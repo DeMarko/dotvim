@@ -146,7 +146,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " invisible characters to show
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
-colorscheme molokai
+colorscheme monokai
+let g:monokai_term_italic = 1
 
 " * Key Remaps
 " Space to toggle folds.
