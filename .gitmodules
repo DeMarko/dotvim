@@ -128,3 +128,6 @@
 [submodule "bundle/monokai-improved"]
 	path = bundle/monokai-improved
 	url = https://github.com/crusoexia/vim-monokai.git
+[submodule "bundle/monokai"]
+	path = bundle/monokai
+	url = https://github.com/crusoexia/vim-monokai.git

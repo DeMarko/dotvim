@@ -27,13 +27,12 @@ silent execute '!mkdir -p $HOME/.vim/tmp/yankring'
 let g:yankring_history_dir = '$HOME/.vim/tmp/yankring'
 silent execute '!mkdir -p $HOME/.vim/tmp/other/'
 
-if version >= 703
-    set undofile
-    silent execute '!mkdir -p $HOME/.vim/tmp/undo'
-    set undodir=~/.vim/tmp/undo// " undofiles
-endif
+set undofile
+silent execute '!mkdir -p $HOME/.vim/tmp/undo'
+set undodir=~/.vim/tmp/undo// " undofiles
 
 set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
 
 " starts NERDTree for every file
 "autocmd VimEnter * exe 'NERDTree' | wincmd l
@@ -65,6 +64,9 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 set tags=tags;/
+
+set smarttab
+set cindent
 
 
 " * Basics
@@ -246,9 +248,6 @@ nnoremap <leader>kf :VLQFOpenBookmarksFor<space>
 nnoremap <leader>kl :VLQFOpenBookmarks<cr>
 nnoremap <leader>ko :VLOpenBookmarks<space>
 
-" Rooter
-let g:rooter_manual_only = 1
-
 " Gundo keymaps
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <leader>g :GundoToggle<CR>
@@ -335,8 +334,9 @@ augroup END
 " in human-language files, automatically format everything at 72 chars:
 autocmd FileType mail,human,markdown set formatoptions+=t textwidth=78
 " set 2 space tabs for html and ruby
-autocmd Filetype html setlocal ts=4 sw=4 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
 " for actual C (not C++) programming where comments have explicit end
