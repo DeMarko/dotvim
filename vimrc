@@ -238,15 +238,6 @@ function! s:find_git_root()
 command! ProjectFiles execute 'Files' s:find_git_root()
 nnoremap <leader>p :ProjectFiles<CR>
 
-" Vim Librarian
-let g:librarian_filename = '~/.vim/tmp/vim_librarian'
-nnoremap <leader>ka :VLBookmark<space>
-nnoremap <leader>kd :VLDelBookmark<space>
-nnoremap <leader>ke :execute "split" g:librarian_filename<cr>
-nnoremap <leader>kf :VLQFOpenBookmarksFor<space>
-nnoremap <leader>kl :VLQFOpenBookmarks<cr>
-nnoremap <leader>ko :VLOpenBookmarks<space>
-
 " Gundo keymaps
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <leader>g :GundoToggle<CR>

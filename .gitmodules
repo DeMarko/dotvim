@@ -65,9 +65,6 @@
 [submodule "bundle/tagbar"]
 	path = pack/default/start/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule "bundle/librarian"]
-	path = pack/default/start/librarian
-	url = git://github.com/malkomalko/vim-librarian.vim.git
 [submodule "bundle/nerdtree-tabs"]
 	path = pack/default/start/nerdtree-tabs
 	url = git://github.com/jistr/vim-nerdtree-tabs.git
@@ -110,9 +107,6 @@
 [submodule "pack/default/start/polyglot"]
 	path = pack/default/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "bundle/javascript-lib"]
-	path = pack/default/start/javascript-lib
-	url = https://github.com/crusoexia/vim-javascript-lib.git
 [submodule "bundle/monokai-improved"]
 	path = pack/default/start/monokai-improved
 	url = https://github.com/crusoexia/vim-monokai.git
@@ -122,3 +116,6 @@
 [submodule "pack/default/opt/node"]
 	path = pack/default/start/node
 	url = https://github.com/moll/vim-node.git
+[submodule "pack/default/start/javascript-libraries-syntax"]
+	path = pack/default/start/javascript-libraries-syntax
+	url = https://github.com/othree/javascript-libraries-syntax.vim.git
