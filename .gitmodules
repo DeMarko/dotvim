@@ -119,3 +119,9 @@
 [submodule "pack/default/start/javascript-libraries-syntax"]
 	path = pack/default/start/javascript-libraries-syntax
 	url = https://github.com/othree/javascript-libraries-syntax.vim.git
+[submodule "pack/default/start/yajs"]
+	path = pack/default/start/yajs
+	url = https://github.com/othree/yajs.vim.git
+[submodule "pack/default/start/flow"]
+	path = pack/default/start/flow
+	url = https://github.com/flowtype/vim-flow.git
