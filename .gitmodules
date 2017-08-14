@@ -62,9 +62,6 @@
 	path = pack/default/start/yankring
 	url = git://github.com/vim-scripts/YankRing.vim.git
     ignore = untracked
-[submodule "bundle/pathogen"]
-	path = pack/default/start/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "bundle/tagbar"]
 	path = pack/default/start/tagbar
 	url = git://github.com/majutsushi/tagbar.git
