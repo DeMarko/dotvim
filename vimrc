@@ -101,6 +101,7 @@ set wrap linebreak textwidth=0     " set vim to soft wrap lines
 set formatoptions=qrn1
 set autoindent
 set shiftround
+set colorcolumn=81
 
 if version >= 703
     set relativenumber             " shows line numbers relative to current line
@@ -266,12 +267,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=/home/".expand($USER)."/development/Etsyweb/tests/standards/stable-ruleset.xml -d memory_limit=512M"
-let g:syntastic_scss_scss_lint_args = "--config=/usr/etsy/buildaSCSS/.scss-lint.yml"
 let g:syntastic_javascript_checkers = ["eslint"]
-"let g:syntastic_javascript_eslint_exec='/usr/bin/eslint'
-let g:syntastic_javascript_eslint_exec='eslint_d'
-let g:syntastic_javascript_eslint_args='--config ' .expand($HOME) . "/.eslintrc"
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>

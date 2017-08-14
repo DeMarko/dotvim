@@ -39,7 +39,7 @@
 	url = https://github.com/sjl/gundo.vim.git
     ignore = dirty
 [submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
+	path = pack/default/start/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
     ignore = untracked
 [submodule "bundle/indent-guides"]
@@ -81,10 +81,10 @@
 	path = bundle/nerdtree-tabs
 	url = git://github.com/jistr/vim-nerdtree-tabs.git
 [submodule "bundle/airline"]
-	path = bundle/airline
+	path = pack/default/start/airline
 	url = https://github.com/bling/vim-airline.git
 [submodule "bundle/addon-mw-utils"]
-	path = bundle/addon-mw-utils
+	path = pack/default/start/addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
@@ -102,10 +102,10 @@
 	path = bundle/phpfolding
 	url = https://github.com/pekepeke/phpfolding.vim
 [submodule "bundle/airlineish"]
-	path = bundle/airlineish
+	path = pack/default/start/airlineish
 	url = https://github.com/paranoida/vim-airlineish.git
 [submodule "bundle/easy-align"]
-	path = bundle/easy-align
+	path = pack/default/start/easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
 [submodule "bundle/tomorrow-theme"]
 	path = bundle/tomorrow-theme
@@ -134,3 +134,6 @@
 [submodule "bundle/ack"]
 	path= = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "pack/default/opt/node"]
+	path = pack/default/start/node
+	url = https://github.com/moll/vim-node.git
