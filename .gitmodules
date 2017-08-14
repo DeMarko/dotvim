@@ -1,41 +1,41 @@
 [submodule "bundle/repeat"]
-	path = bundle/repeat
+	path = pack/default/start/repeat
 	url = http://github.com/tpope/vim-repeat.git
     ignore = untracked
 [submodule "bundle/syntastic"]
-	path = bundle/syntastic
+	path = pack/default/start/syntastic
 	url = http://github.com/scrooloose/syntastic.git
     ignore = untracked
 [submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+	path = pack/default/start/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
     ignore = untracked
 [submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+	path = pack/default/start/nerdcommenter
 	url = http://github.com/scrooloose/nerdcommenter.git
     ignore = untracked
 [submodule "bundle/space"]
-	path = bundle/space
+	path = pack/default/start/space
 	url = http://github.com/scrooloose/vim-space.git
     ignore = untracked
 [submodule "bundle/fugitive"]
-	path = bundle/fugitive
+	path = pack/default/start/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
     ignore = untracked
 [submodule "bundle/rainbow"]
-	path = bundle/rainbow
+	path = pack/default/start/rainbow
 	url = http://github.com/chrismetcalf/vim-rainbow.git
     ignore = untracked
 [submodule "bundle/surround"]
-	path = bundle/surround
+	path = pack/default/start/surround
 	url = http://github.com/tpope/vim-surround.git
     ignore = untracked
 [submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
+	path = pack/default/start/unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
     ignore = untracked
 [submodule "bundle/gundo"]
-	path = bundle/gundo
+	path = pack/default/start/gundo
 	url = https://github.com/sjl/gundo.vim.git
     ignore = dirty
 [submodule "bundle/delimitMate"]
@@ -43,42 +43,36 @@
 	url = https://github.com/Raimondi/delimitMate.git
     ignore = untracked
 [submodule "bundle/indent-guides"]
-	path = bundle/indent-guides
+	path = pack/default/start/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
     ignore = untracked
 [submodule "bundle/git"]
-	path = bundle/git
+	path = pack/default/start/git
 	url = https://github.com/tpope/vim-git.git
     ignore = untracked
 [submodule "bundle/eunuch"]
-	path = bundle/eunuch
+	path = pack/default/start/eunuch
 	url = https://github.com/tpope/vim-eunuch
     ignore = untracked
-[submodule "bundle/jellybeans"]
-	path = bundle/jellybeans
-	url = https://github.com/nanotech/jellybeans.vim.git
 [submodule "bundle/taglist"]
-	path = bundle/taglist
+	path = pack/default/start/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
     ignore = untracked
 [submodule "bundle/yankring"]
-	path = bundle/yankring
+	path = pack/default/start/yankring
 	url = git://github.com/vim-scripts/YankRing.vim.git
     ignore = untracked
 [submodule "bundle/pathogen"]
-	path = bundle/pathogen
+	path = pack/default/start/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "bundle/tagbar"]
-	path = bundle/tagbar
+	path = pack/default/start/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule "bundle/molokai"]
-	path = bundle/molokai
-	url = https://github.com/tomasr/molokai
 [submodule "bundle/librarian"]
-	path = bundle/librarian
+	path = pack/default/start/librarian
 	url = git://github.com/malkomalko/vim-librarian.vim.git
 [submodule "bundle/nerdtree-tabs"]
-	path = bundle/nerdtree-tabs
+	path = pack/default/start/nerdtree-tabs
 	url = git://github.com/jistr/vim-nerdtree-tabs.git
 [submodule "bundle/airline"]
 	path = pack/default/start/airline
@@ -87,19 +81,19 @@
 	path = pack/default/start/addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/supertab"]
-	path = bundle/supertab
+	path = pack/default/start/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/snippets"]
-	path = bundle/snippets
+	path = pack/default/start/snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule "bundle/matchmaker"]
-	path = bundle/matchmaker
+	path = pack/default/start/matchmaker
 	url = https://github.com/qstrahl/vim-matchmaker
 [submodule "bundle/enhanced-js"]
-	path = bundle/enhanced-js
+	path = pack/default/start/enhanced-js
 	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "bundle/phpfolding"]
-	path = bundle/phpfolding
+	path = pack/default/start/phpfolding
 	url = https://github.com/pekepeke/phpfolding.vim
 [submodule "bundle/airlineish"]
 	path = pack/default/start/airlineish
@@ -107,29 +101,23 @@
 [submodule "bundle/easy-align"]
 	path = pack/default/start/easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
-[submodule "bundle/tomorrow-theme"]
-	path = bundle/tomorrow-theme
-	url = https://github.com/chriskempson/vim-tomorrow-theme.git
 [submodule "bundle/bracketed-paste"]
-	path = bundle/bracketed-paste
+	path = pack/default/start/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
 [submodule "bundle/mustache"]
-	path = bundle/mustache
+	path = pack/default/start/mustache
 	url = https://github.com/mustache/vim-mustache-handlebars.git
 [submodule "bundle/fzf"]
-	path = bundle/fzf
+	path = pack/default/start/fzf
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule "pack/default/start/polyglot"]
 	path = pack/default/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot
 [submodule "bundle/javascript-lib"]
-	path = bundle/javascript-lib
+	path = pack/default/start/javascript-lib
 	url = https://github.com/crusoexia/vim-javascript-lib.git
 [submodule "bundle/monokai-improved"]
-	path = bundle/monokai-improved
-	url = https://github.com/crusoexia/vim-monokai.git
-[submodule "bundle/monokai"]
-	path = bundle/monokai
+	path = pack/default/start/monokai-improved
 	url = https://github.com/crusoexia/vim-monokai.git
 [submodule "bundle/ack"]
 	path= = bundle/ack
