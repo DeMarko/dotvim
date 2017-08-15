@@ -263,6 +263,17 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': [
+\       'prettier_eslint',
+\       'remove_trailing_lines',
+\   ],
+\   'python': ['flake8'],
+\}
+" Bind F8 to fixing problems with ALE
+nmap <F8> <Plug>(ale_fix)
+
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
@@ -296,7 +307,6 @@ let g:NERDShutUp = 1
 let g:tagbar_width = 40
 let g:tagbar_autoclose = 1
 let g:tagbar_compact = 1
-nmap <F8> :TagbarToggle<CR>
 
 " PHPCtags for TagBar
 let g:tagbar_phpctags_bin='$HOME/bin/phpctags/phpctags'
@@ -327,6 +337,10 @@ autocmd FileType mail,human,markdown set formatoptions+=t textwidth=78
 " set 2 space tabs for html and ruby
 autocmd Filetype html setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
@@ -415,3 +429,12 @@ function! Wipeout(bang)
   endfor
   echon "Deleted " . l:tally . " buffers"
 endfun
+
+" Put these lines at the very end of your vimrc file.
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
