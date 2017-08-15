@@ -2,10 +2,6 @@
 	path = pack/default/start/repeat
 	url = http://github.com/tpope/vim-repeat.git
     ignore = untracked
-[submodule "bundle/syntastic"]
-	path = pack/default/start/syntastic
-	url = http://github.com/scrooloose/syntastic.git
-    ignore = untracked
 [submodule "bundle/nerdtree"]
 	path = pack/default/start/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
@@ -125,3 +121,6 @@
 [submodule "pack/default/start/flow"]
 	path = pack/default/start/flow
 	url = https://github.com/flowtype/vim-flow.git
+[submodule "pack/default/start/ale"]
+	path = pack/default/start/ale
+	url = https://github.com/w0rp/ale.git

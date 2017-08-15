@@ -251,12 +251,18 @@ au BufNewFile,BufRead *.html map <leader>ft Vatzf
 " * Plugin Options
 
 " Syntastic options
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_javascript_checkers = ["eslint"]
+"let g:syntastic_enable_signs = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_error_symbol='✗'
+"let g:syntastic_warning_symbol='⚠'
+"let g:syntastic_php_checkers=['php', 'phpcs']
+"let g:syntastic_javascript_checkers = ["eslint"]
+
+" Ale options
+let g:airline#extensions#ale#enabled = 1
+let g:ale_open_list = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
