@@ -236,10 +236,10 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 function! s:find_git_root()
-      return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-  endfunction
+    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
 
-command! ProjectFiles execute 'Files' s:find_git_root()
+command! ProjectFiles execute 'GFiles' s:find_git_root()
 nnoremap <leader>p :ProjectFiles<CR>
 
 " Gundo keymaps
