@@ -148,7 +148,10 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 colorscheme monokai
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
 
 " * Key Remaps
 " Space to toggle folds.

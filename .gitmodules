@@ -127,3 +127,9 @@
 [submodule "pack/default/start/airline-themes"]
 	path = pack/default/start/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "pack/default/start/one-theme"]
+	path = pack/default/start/one-theme
+	url = https://github.com/rakr/vim-one.git
+[submodule "pack/default/start/monokai-soda"]
+	path = pack/default/start/monokai-soda
+	url = https://github.com/dunckr/vim-monokai-soda.git
