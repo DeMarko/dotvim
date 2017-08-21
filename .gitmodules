@@ -124,3 +124,6 @@
 [submodule "pack/default/start/ale"]
 	path = pack/default/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "pack/default/start/airline-themes"]
+	path = pack/default/start/airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
