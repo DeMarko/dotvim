@@ -147,6 +147,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " invisible characters to show
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
+set termguicolors
 colorscheme monokai
 "let &t_ZH="\e[3m"
 "let &t_ZR="\e[23m"
@@ -273,7 +274,6 @@ let g:ale_fixers = {
 \       'prettier_eslint',
 \       'remove_trailing_lines',
 \   ],
-\   'python': ['flake8'],
 \}
 " Bind F8 to fixing problems with ALE
 nmap <F8> <Plug>(ale_fix)
@@ -345,7 +345,7 @@ augroup FiletypeGroup
     autocmd!
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
-autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype javascript,json setlocal ts=2 sw=2 sts=2 expandtab
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
 " for actual C (not C++) programming where comments have explicit end
