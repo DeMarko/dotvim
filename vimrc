@@ -346,6 +346,7 @@ augroup FiletypeGroup
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 autocmd Filetype javascript,json setlocal ts=2 sw=2 sts=2 expandtab
+autocmd BufNewFile *.js     0r $HOME/.vim/templates/es6.js
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
 " for actual C (not C++) programming where comments have explicit end
