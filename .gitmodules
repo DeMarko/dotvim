@@ -133,3 +133,9 @@
 [submodule "pack/default/start/monokai-soda"]
 	path = pack/default/start/monokai-soda
 	url = https://github.com/dunckr/vim-monokai-soda.git
+[submodule "pack/default/start/prettier"]
+	path = pack/default/start/prettier
+	url = https://github.com/prettier/vim-prettier.git
+[submodule "pack/default/start/graphql"]
+	path = pack/default/start/graphql
+	url = https://github.com/jparise/vim-graphql.git

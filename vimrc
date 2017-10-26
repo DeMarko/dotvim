@@ -227,6 +227,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
 let g:airline#extensions#tabline#enabled = 1
 
+" Flow
+let g:flow#autoclose = 1
 
 " FZF
 let g:fzf_layout = { 'down': '~40%' }
@@ -271,10 +273,12 @@ let g:ale_sign_warning = '⚠'
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': [
-\       'prettier_eslint',
+\       'eslint',
+\       'prettier',
 \       'remove_trailing_lines',
 \   ],
 \}
+let g:javascript_prettier_options = '--single-quote --trailing-comma all'
 " Bind F8 to fixing problems with ALE
 nmap <F8> <Plug>(ale_fix)
 
@@ -341,12 +345,14 @@ autocmd FileType mail,human,markdown set formatoptions+=t textwidth=78
 " set 2 space tabs for html and ruby
 autocmd Filetype html setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
+
 augroup FiletypeGroup
     autocmd!
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 autocmd Filetype javascript,json setlocal ts=2 sw=2 sts=2 expandtab
 autocmd BufNewFile *.js     0r $HOME/.vim/templates/es6.js
+
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
 " for actual C (not C++) programming where comments have explicit end
