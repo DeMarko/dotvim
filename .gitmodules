@@ -118,9 +118,6 @@
 [submodule "pack/default/start/yajs"]
 	path = pack/default/start/yajs
 	url = https://github.com/othree/yajs.vim.git
-[submodule "pack/default/start/flow"]
-	path = pack/default/start/flow
-	url = https://github.com/flowtype/vim-flow.git
 [submodule "pack/default/start/ale"]
 	path = pack/default/start/ale
 	url = https://github.com/w0rp/ale.git
@@ -136,6 +133,8 @@
 [submodule "pack/default/start/prettier"]
 	path = pack/default/start/prettier
 	url = https://github.com/prettier/vim-prettier.git
+    ignore = untracked
 [submodule "pack/default/start/graphql"]
 	path = pack/default/start/graphql
 	url = https://github.com/jparise/vim-graphql.git
+    ignore = untracked
