@@ -4,3 +4,6 @@ tags
 *.swp
 .VimballRecord
 .netrwhist
+plugged/
+autoload/
+.DS_Store
